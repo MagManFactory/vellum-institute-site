@@ -273,6 +273,12 @@
   .success-msg svg{margin:0 auto 18px;}
   .success-msg h3{font-size:21px; margin-bottom:10px;}
   .success-msg p{color:var(--text-soft); font-size:14.5px;}
+  .error-msg{display:none; text-align:center; padding:24px 0;}
+  .error-msg svg{margin:0 auto 18px;}
+  .error-msg h3{font-size:21px; margin-bottom:10px; color:#B3441E;}
+  .error-msg p{color:var(--text-soft); font-size:14.5px;}
+  .error-msg a{color:var(--accent);}
+  .hp-field{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
 
   /* ---- Course preference ranking ---- */
   .pref-block{display:flex; flex-direction:column; gap:12px;}
@@ -721,6 +727,10 @@
             <textarea id="notes" placeholder="A few sentences is plenty. A fuller writeup is part of the full application." required></textarea>
           </div>
         </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <button type="submit" class="btn-primary">Start the conversation</button>
         <p class="form-note">By submitting, you agree to be contacted by Vellum Institute about this application.</p>
       </form>
@@ -728,6 +738,11 @@
         <svg width="46" height="46" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" stroke="#A9803F" stroke-width="2" fill="none"/><path d="M15 24l6 6 12-13" stroke="#A9803F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>Thank you, we'll be in touch</h3>
         <p>A member of our team will reach out within two business days with next steps.</p>
+      </div>
+      <div class="error-msg" id="errorMsg">
+        <svg width="46" height="46" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" stroke="#B3441E" stroke-width="2" fill="none"/><path d="M24 15v16" stroke="#B3441E" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="24" cy="34" r="1.6" fill="#B3441E"/></svg>
+        <h3>Something went wrong</h3>
+        <p>We could not submit your inquiry just now. Please try again, or email us directly at <a href="mailto:admissions@velluminstitute.org">admissions@velluminstitute.org</a>.</p>
       </div>
     </div>
   </div>
@@ -886,12 +901,71 @@
       COURSES.map(c => `<option value="${c.title}">${c.title}</option>`).join('');
   }
 
-  // ---- Apply form (demo only, no backend wired up) ----
-  document.getElementById('applyForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  });
+  // ---- Apply form ----
+  // Submits to a Google Apps Script web app bound to the Vellum Institute
+  // inquiries spreadsheet. Never logs form field values (this is data about
+  // minors) -- only generic, non-identifying diagnostics may go to console.
+  (function(){
+    const form = document.getElementById('applyForm');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+    if(!form) return;
+
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxXPVsPb3IfHIEaNxlBszLt5cF-B7oGPmvVi3x4OOaKduz4dzTdY8PtlenpkDDvdwMv/exec';
+    const FIELD_IDS = ['parentName','studentName','email','grade','schoolName','state','country','curriculum','courseInterest','notes'];
+    const REQUIRED_IDS = ['parentName','studentName','email','grade','schoolName','country','curriculum','courseInterest','notes'];
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtnLabel = submitBtn ? submitBtn.textContent : '';
+
+    function setSubmitting(isSubmitting){
+      if(!submitBtn) return;
+      submitBtn.disabled = isSubmitting;
+      submitBtn.textContent = isSubmitting ? 'Sending…' : submitBtnLabel;
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(errorMsg) errorMsg.style.display = 'none';
+
+      // Required-field validation (mirrors the native `required` attributes).
+      let firstInvalid = null;
+      for(const id of REQUIRED_IDS){
+        const el = document.getElementById(id);
+        if(el && !el.value.trim()){ firstInvalid = el; break; }
+      }
+      if(firstInvalid){
+        if(firstInvalid.reportValidity) firstInvalid.reportValidity();
+        else firstInvalid.focus();
+        return;
+      }
+
+      const payload = {};
+      FIELD_IDS.forEach(function(id){
+        const el = document.getElementById(id);
+        payload[id] = el ? el.value.trim() : '';
+      });
+      const hp = document.getElementById('website');
+      if(hp) payload.hp = hp.value;
+
+      setSubmitting(true);
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'text/plain;charset=utf-8'},
+        body: JSON.stringify(payload)
+      })
+        .then(function(resp){ return resp.json(); })
+        .then(function(data){
+          if(!data || !data.ok) throw new Error('backend reported failure');
+          form.style.display = 'none';
+          if(successMsg) successMsg.style.display = 'block';
+        })
+        .catch(function(){
+          setSubmitting(false);
+          if(errorMsg) errorMsg.style.display = 'block';
+        });
+    });
+  })();
 
   // ---- Reveal-on-scroll, with a hard fallback so content is never stuck invisible ----
   const revealEls = document.querySelectorAll('.reveal');
