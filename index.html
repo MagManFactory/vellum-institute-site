@@ -992,21 +992,49 @@
 </script>
 
 <section id="newsletter" class="newsletter-section" style="padding:3rem 1.25rem;max-width:40rem;margin:0 auto;">
-  <h2 style="font-family:Inter,Helvetica,Arial,sans-serif;">The Vellum Counselor Brief</h2>
-  <p>A monthly five-minute briefing for college counselors on what is changing in undergraduate education.</p>
-  <p><a href="/newsletter/issue-01/">Read Issue 01 (September 2026)</a></p>
+  <h2 style="font-family:Inter,Helvetica,Arial,sans-serif;">The Vellum Brief</h2>
+  <p>The Vellum Brief is a five-minute briefing for college counselors, educators, and parents on what is changing in undergraduate education.</p>
+  <p><a href="/newsletter/issue-01/">Issue 01 · August 2026</a></p>
+  <p><a href="/newsletter/issue-02/">Issue 02 · September 2026</a></p>
   <p style="margin-top:1rem;"><strong>Subscribe</strong> (opt-in):</p>
-  <form id="brief-signup" action="https://script.google.com/macros/s/AKfycbwPlrYuRWkWUdllbBmIofivxwuXHA-gbejsVCSpJmE_DdRaSeNpFIGF3XCmEsCCBQj_uQ/exec" method="POST" style="display:flex;flex-direction:column;gap:0.5rem;max-width:22rem;">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <input type="text" name="organization" placeholder="School / organization (optional)" />
-    <input type="text" name="role" placeholder="Role (optional)" />
-    <label style="font-size:0.9rem;"><input type="checkbox" name="consent" required /> I want to receive The Vellum Counselor Brief and can unsubscribe anytime.</label>
+  <form id="brief-signup" action="https://script.google.com/macros/s/AKfycbwPlrYuRWkWUdllbBmIofivxwuXHA-gbejsVCSpJmE_DdRaSeNpFIGF3XCmEsCCBQj_uQ/exec" method="POST" style="display:flex;flex-direction:column;gap:0.5rem;max-width:28rem;">
+    <input type="text" name="first_name" placeholder="First name" required autocomplete="given-name" />
+    <input type="text" name="last_name" placeholder="Last name" required autocomplete="family-name" />
+    <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+    <select name="role" required aria-label="Role">
+      <option value="" disabled selected>Role</option>
+      <option value="Counselor">Counselor</option>
+      <option value="Parent">Parent</option>
+      <option value="Caregiver">Caregiver</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="text" name="role_other" placeholder="Please specify" hidden autocomplete="off" />
+    <label style="font-size:0.9rem;"><input type="checkbox" name="consent" required /> I want to receive The Vellum Brief and can unsubscribe anytime.</label>
     <input type="hidden" name="source" value="site_newsletter" />
     <button type="submit" class="btn-primary">Subscribe</button>
   </form>
   <p style="font-size:0.85rem;color:#555;">We never auto-subscribe our outreach list. Easy unsubscribe on every issue.</p>
 </section>
 
+
+<script>
+  (function(){
+    function wireRoleOther(form){
+      if(!form) return;
+      var role = form.querySelector('[name="role"]');
+      var other = form.querySelector('[name="role_other"]');
+      if(!role || !other) return;
+      function sync(){
+        var show = role.value === 'Other';
+        other.hidden = !show;
+        other.required = show;
+        if(!show) other.value = '';
+      }
+      role.addEventListener('change', sync);
+      sync();
+    }
+    wireRoleOther(document.getElementById('brief-signup'));
+  })();
+</script>
 </body>
 </html>
