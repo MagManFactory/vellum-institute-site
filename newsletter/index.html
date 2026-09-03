@@ -429,11 +429,11 @@
     <div class="signup-card">
       <h2>Subscribe</h2>
       <p>Opt-in only. Easy unsubscribe on every issue.</p>
-      <!-- ACCESS MISSING: newsletter Apps Script /exec endpoint not provisioned yet; REPLACE_NEWSLETTER_ENDPOINT is a placeholder. -->
-      <form id="brief-signup" action="https://script.google.com/macros/s/REPLACE_NEWSLETTER_ENDPOINT/exec" method="POST">
+      <form id="brief-signup" action="https://script.google.com/macros/s/AKfycbwPlrYuRWkWUdllbBmIofivxwuXHA-gbejsVCSpJmE_DdRaSeNpFIGF3XCmEsCCBQj_uQ/exec" method="POST">
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <input type="text" name="organization" placeholder="School / organization (optional)" />
+        <input type="text" name="role" placeholder="Role (optional)" />
         <label><input type="checkbox" name="consent" required /> I want to receive The Vellum Counselor Brief and can unsubscribe anytime.</label>
         <input type="hidden" name="source" value="site_newsletter" />
         <button type="submit" class="btn-primary">Subscribe</button>
