@@ -80,6 +80,26 @@
   .success-msg svg{margin-bottom:14px;}
   .success-msg h3{font-size:24px; margin-bottom:10px;}
   .success-msg p{color:var(--charcoal-soft); font-size:15px; max-width:420px; margin:0 auto;}
+  .success-msg .app-id-line{margin-top:18px; font-size:15px; color:var(--ink); font-weight:600;}
+  .success-msg .app-id-line strong{letter-spacing:.04em;}
+
+  .error-msg{display:none; text-align:left; padding:16px 18px; margin:0 0 22px; border:1.5px solid #E8C8BC; background:#FDF6F3; border-radius:10px;}
+  .error-msg h3{font-size:17px; margin-bottom:6px; color:#B3441E;}
+  .error-msg p{color:var(--charcoal-soft); font-size:14px; margin:0; line-height:1.55;}
+  .error-msg a{color:var(--ink);}
+
+  .hp-field{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+  .btn-primary:disabled{opacity:.6; cursor:not-allowed; transform:none;}
+
+  .pref-block{display:flex; flex-direction:column; gap:12px;}
+  .pref-ranks{display:flex; flex-direction:column; gap:16px;}
+  .pref-rank{display:flex; flex-direction:column; gap:7px;}
+  .pref-rank span{font-size:12px; font-weight:600; color:var(--brass); text-transform:uppercase; letter-spacing:0.06em;}
+  .pref-rank select:disabled{opacity:0.4; cursor:not-allowed;}
+  .second-course-toggle{display:flex; align-items:flex-start; gap:11px; cursor:pointer;}
+  .second-course-toggle input{width:16px; height:16px; margin-top:2px; accent-color:var(--ink); cursor:pointer; flex-shrink:0;}
+  .second-course-toggle span{font-size:14.5px; font-weight:600; color:var(--ink);}
+  .second-course-block{border-top:1px dashed var(--line); padding-top:24px; margin-top:4px;}
 
   footer{border-top:1px solid var(--line); padding:28px 0; background:var(--parchment);}
   footer .wrap{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;}
@@ -114,28 +134,44 @@
     </div>
 
     <div class="form-card">
+      <div class="error-msg" id="errorMsg" role="alert">
+        <h3>Something went wrong</h3>
+        <p>We could not submit your application just now. Please try again, or email us directly at <a href="mailto:admissions@velluminstitute.org">admissions@velluminstitute.org</a>.</p>
+      </div>
       <form id="intakeForm">
 
         <fieldset>
           <legend>Contact information</legend>
           <div class="form-row">
             <div class="form-field">
-              <label for="parentName">Parent / guardian name <span class="req">*</span></label>
-              <input type="text" id="parentName" required>
+              <label for="parentFirst">Parent / guardian first name <span class="req">*</span></label>
+              <input type="text" id="parentFirst" name="parentFirst" required autocomplete="given-name">
             </div>
             <div class="form-field">
-              <label for="studentName">Student name <span class="req">*</span></label>
-              <input type="text" id="studentName" required>
+              <label for="parentLast">Parent / guardian last name <span class="req">*</span></label>
+              <input type="text" id="parentLast" name="parentLast" required autocomplete="family-name">
             </div>
           </div>
           <div class="form-row">
             <div class="form-field">
-              <label for="email">Email <span class="req">*</span></label>
-              <input type="email" id="email" required>
+              <label for="studentName">Student name <span class="req">*</span></label>
+              <input type="text" id="studentName" name="studentName" required autocomplete="name">
             </div>
             <div class="form-field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
               <label for="phone">Phone <span class="opt-tag">(optional)</span></label>
-              <input type="tel" id="phone">
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label for="cohort">Cohort <span class="req">*</span></label>
+              <select id="cohort" name="cohort" required>
+                <option value="Spring 2027" selected>Spring 2027</option>
+              </select>
             </div>
           </div>
         </fieldset>
@@ -297,6 +333,10 @@
           </div>
         </fieldset>
 
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <button type="submit" class="btn-primary">Submit full profile</button>
         <p class="form-note">This information is used to match your student with the right seminar and instructor and stays confidential within Vellum Institute. By submitting, you agree to be contacted about your student's application.</p>
       </form>
@@ -304,7 +344,8 @@
       <div class="success-msg" id="successMsg">
         <svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" stroke="#A9803F" stroke-width="2" fill="none"/><path d="M15 24l6 6 12-13" stroke="#A9803F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>Thank you</h3>
-        <p>Your student's full profile has been received. A member of our team will follow up with next steps, including enrollment or webinar details if a seat is not immediately open.</p>
+        <p>Your student's full profile has been received. Please keep this application ID for your records. A member of our team will follow up with next steps.</p>
+        <p class="app-id-line">Application ID: <strong id="applicationIdDisplay"></strong></p>
       </div>
     </div>
   </div>
@@ -368,11 +409,113 @@
     if (!secondCourse1.value){ secondCourse2.value=''; }
   });
 
-  document.getElementById('intakeForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  });
+  // Submits to a Google Apps Script web app bound to the applications
+  // spreadsheet (same pattern as the homepage inquiry form). Application
+  // IDs are minted server-side as 27SPRC### — never in the browser.
+  // Never logs form field values (this is data about minors).
+  (function(){
+    const form = document.getElementById('intakeForm');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+    const applicationIdDisplay = document.getElementById('applicationIdDisplay');
+    if(!form) return;
+
+    // Roger: paste the deployed Apps Script web-app /exec URL here after deploy.
+    const APPLICATION_ENDPOINT = 'REPLACE_WITH_APPLICATIONS_GAS_EXEC_URL';
+
+    const TEXT_IDS = [
+      'parentFirst','parentLast','studentName','email','phone','cohort',
+      'grade','school','location','gpa','testing','testScore','interests',
+      'school1','school2','school3','school4','school5',
+      'course1','course2','course3',
+      'secondCourse1','secondCourse2',
+      'suppOther','heard','notes'
+    ];
+    const REQUIRED_IDS = ['parentFirst','parentLast','studentName','email','grade','cohort','course1','school1','school2','school3'];
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtnLabel = submitBtn ? submitBtn.textContent : '';
+
+    function endpointIsConfigured(url){
+      return typeof url === 'string'
+        && url.indexOf('REPLACE_WITH_APPLICATIONS_GAS_EXEC_URL') === -1
+        && /^https:\/\//i.test(url);
+    }
+
+    function setSubmitting(isSubmitting){
+      if(!submitBtn) return;
+      submitBtn.disabled = isSubmitting;
+      submitBtn.textContent = isSubmitting ? 'Sending…' : submitBtnLabel;
+    }
+
+    function showError(){
+      if(!errorMsg) return;
+      errorMsg.style.display = 'block';
+      errorMsg.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+
+    function hideError(){
+      if(errorMsg) errorMsg.style.display = 'none';
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      hideError();
+
+      let firstInvalid = null;
+      for(const id of REQUIRED_IDS){
+        const el = document.getElementById(id);
+        if(el && !el.value.trim()){ firstInvalid = el; break; }
+      }
+      if(secondCourseToggle && secondCourseToggle.checked){
+        const secondPick = document.getElementById('secondCourse1');
+        if(secondPick && !secondPick.value.trim() && !firstInvalid) firstInvalid = secondPick;
+      }
+      if(firstInvalid){
+        if(firstInvalid.reportValidity) firstInvalid.reportValidity();
+        else firstInvalid.focus();
+        return;
+      }
+
+      if(!endpointIsConfigured(APPLICATION_ENDPOINT)){
+        console.warn('application submit failed: endpoint-not-configured');
+        showError();
+        return;
+      }
+
+      const payload = { source: 'full-application' };
+      TEXT_IDS.forEach(function(id){
+        const el = document.getElementById(id);
+        payload[id] = el ? el.value.trim() : '';
+      });
+      payload.secondCourseThisCohort = !!(secondCourseToggle && secondCourseToggle.checked);
+      payload.supplementary = Array.prototype.map.call(
+        form.querySelectorAll('input[name="supp"]:checked'),
+        function(box){ return box.value; }
+      ).join('; ');
+      const hp = document.getElementById('website');
+      if(hp) payload.hp = hp.value;
+
+      setSubmitting(true);
+
+      fetch(APPLICATION_ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'text/plain;charset=utf-8'},
+        body: JSON.stringify(payload)
+      })
+        .then(function(resp){ return resp.json(); })
+        .then(function(data){
+          if(!data || !data.ok || !data.application_id) throw new Error('backend reported failure');
+          if(applicationIdDisplay) applicationIdDisplay.textContent = data.application_id;
+          form.style.display = 'none';
+          hideError();
+          if(successMsg) successMsg.style.display = 'block';
+        })
+        .catch(function(){
+          setSubmitting(false);
+          showError();
+        });
+    });
+  })();
 </script>
 
 </body>
