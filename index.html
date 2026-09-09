@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vellum Institute | Live seminars with real faculty</title>
-<meta name="description" content="A small, application-based online institute where high school students take live seminars with university faculty and experienced industry professionals affiliated with premier universities, then go further with a one-on-one Apprenticeship Project.">
+<meta name="description" content="A small, application-based online institute where high school students take live seminars with university faculty and experienced industry professionals affiliated with premier universities, then go further with one-on-one guided research or apprenticeship.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -106,7 +106,7 @@
   .brand-mark{width:30px; height:30px; object-fit:contain; flex-shrink:0;}
   .brand-word{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
   .nav-links{display:flex; align-items:center; gap:38px;}
-  .nav-links a{position:relative; font-family:var(--font-mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-soft); transition:color var(--dur-fast);}
+  .nav-links a{position:relative; font-family:var(--font-mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-soft); transition:color var(--dur-fast); white-space:nowrap;}
   .nav-links a::after{content:''; position:absolute; left:0; right:0; bottom:-6px; height:1px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform var(--dur-fast) var(--ease);}
   .nav-links a:hover{color:var(--ink);}
   .nav-links a:hover::after{transform:scaleX(1);}
@@ -140,7 +140,7 @@
   .hero-facts{display:grid; grid-template-columns:repeat(3,auto); gap:clamp(28px,5vw,72px); margin-top:clamp(56px,7vw,92px); padding-top:32px; border-top:1px solid var(--line); justify-content:start;}
   .fact{display:flex; flex-direction:column; gap:6px;}
   .fact-num{font-family:var(--font-display); font-size:34px; font-weight:600; color:var(--ink); line-height:1;}
-  .fact-label{font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; color:var(--text-soft); max-width:14ch;}
+  .fact-label{font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; color:var(--text-soft); max-width:16ch;}
 
   /* ---------- WHY NOW (STATS) ---------- */
   .stats{background:var(--ink); color:#fff;}
@@ -357,7 +357,7 @@
       <a href="#courses">Courses</a>
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
-      <a href="#research">Apprenticeship</a>
+      <a href="#research">Guided research</a>
       <a href="#faq">FAQ</a>
       <a href="/newsletter/">Newsletter</a>
       <a href="/about/">About</a>
@@ -371,7 +371,7 @@
     <a href="#courses">Courses</a>
     <a href="#how">How it works</a>
     <a href="#pricing">Pricing</a>
-    <a href="#research">Apprenticeship</a>
+    <a href="#research">Guided research</a>
     <a href="#faq">FAQ</a>
     <a href="/newsletter/">Newsletter</a>
     <a href="/about/">About</a>
@@ -384,7 +384,7 @@
     <div>
       <span class="eyebrow-standalone">Now taking interest for our inaugural spring cohort</span>
       <h1>College-level seminars.<br>Expert faculty.<br><span class="accent-italic">High-caliber peers.</span></h1>
-      <p class="lead">Vellum Institute is a small, application-based online institute built around live faculty seminars. Vellum Fellows are a selected group of high school students who take a live seminar with a professor from a premier university, an expert in their field with strong research and teaching credentials, then go further with an optional, supervised one-on-one apprenticeship.</p>
+      <p class="lead">Vellum Institute is a small, application-based online institute built around live faculty seminars. Vellum Fellows are a selected group of high school students who take a live seminar with a professor from a premier university, an expert in their field with strong research and teaching credentials, then go further with optional, supervised one-on-one guided research or apprenticeship.</p>
       <div class="hero-actions">
         <a href="#apply" class="btn-primary">Apply</a>
         <a href="#courses" class="text-link">View the courses <span class="arrow">&rarr;</span></a>
@@ -398,14 +398,14 @@
         <li>Capped at fifteen students, never a lecture hall</li>
         <li>Built around real pedagogy, and critical questions</li>
         <li>Ends in a substantive, original project</li>
-        <li>Opens the door to a supervised one-on-one apprenticeship after.</li>
+        <li>Opens the door to supervised one-on-one guided research or apprenticeship after.</li>
       </ul>
     </aside>
   </div>
   <div class="wrap hero-facts">
     <div class="fact"><span class="fact-num">&le;15</span><span class="fact-label">students per seminar</span></div>
     <div class="fact"><span class="fact-num">8</span><span class="fact-label">sessions, live, discussion-based</span></div>
-    <div class="fact"><span class="fact-num">1:1</span><span class="fact-label">apprenticeship available after</span></div>
+    <div class="fact"><span class="fact-num">1:1</span><span class="fact-label">guided research available after</span></div>
   </div>
 </section>
 
@@ -479,7 +479,7 @@
   <div class="wrap">
     <div class="section-mark"><span class="idx">03</span><span class="idx-total">/10</span><span class="rule"></span><span class="eyebrow">Program</span></div>
     <h2 class="headline">Built around a real relationship, not a transaction</h2>
-    <p class="body-lg">Most of what is sold to families in this category is either a generic mentor match or a credential shortcut. Vellum is built around something neither offers: one professor who works with a student from the seminar through an optional Apprenticeship Project, so the relationship deepens instead of resetting with someone new.</p>
+    <p class="body-lg">Most of what is sold to families in this category is either a generic mentor match or a credential shortcut. Vellum is built around something neither offers: one professor who works with a student from the seminar through optional guided research or an apprenticeship, so the relationship deepens instead of resetting with someone new.</p>
     <div class="program-list">
       <div class="program-row reveal">
         <span class="program-num">01</span>
@@ -499,7 +499,7 @@
         <span class="program-num">03</span>
         <div>
           <h3>A relationship that continues</h3>
-          <p>After the seminar, a student can go further with the same professor through a genuine one-on-one Apprenticeship Project, building on a relationship that already exists rather than a cold mentor match.</p>
+          <p>After the seminar, a student can go further with the same professor through genuine one-on-one guided research or apprenticeship, building on a relationship that already exists rather than a cold mentor match.</p>
         </div>
       </div>
     </div>
@@ -579,7 +579,7 @@
       <div class="step reveal">
         <span class="step-idx">04</span>
         <h4>Go further, optionally</h4>
-        <p>Continue with the same professor into a one-on-one Apprenticeship Project and leave with a real body of work behind you.</p>
+        <p>Continue with the same professor into one-on-one guided research or apprenticeship and leave with a real body of work behind you.</p>
       </div>
     </div>
   </div>
@@ -611,9 +611,9 @@
   <div class="wrap research-layout">
     <div>
       <div class="section-mark"><span class="idx">08</span><span class="idx-total">/10</span><span class="rule"></span><span class="eyebrow">After the seminar</span></div>
-      <h2 class="headline">Go from a seminar to a supervised apprenticeship</h2>
+      <h2 class="headline">Go from a seminar to guided research or apprenticeship</h2>
       <p>The seminar alone gives a student a genuine, college-level experience worth having on its own. For those who want to go further, a student can continue one-on-one with the same professor, someone they have already worked with, rather than a stranger assigned for the purpose.</p>
-      <p>This is where a generic "research program" and a Vellum apprenticeship relationship diverge. There are no gimmicks here, no publishing in an affiliated journal, no manufactured credential. We focus on real project outcomes a student can speak to with substance and highlight in their college applications, supervised closely by a professor who already knows how they think.</p>
+      <p>This is where a generic "research program" and a Vellum guided research or apprenticeship relationship diverge. There are no gimmicks here, no publishing in an affiliated journal, no manufactured credential. We focus on real project outcomes a student can speak to with substance and highlight in their college applications, supervised closely by a professor who already knows how they think.</p>
     </div>
     <div class="research-panel reveal">
       <div class="price-amount light">By inquiry</div>
@@ -767,7 +767,7 @@
       <ul>
         <li><a href="#courses">Courses</a></li>
         <li><a href="#how">How it works</a></li>
-        <li><a href="#research">Apprenticeship</a></li>
+        <li><a href="#research">Guided research</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
     </div>
@@ -848,8 +848,8 @@
     {q:"Can a student take two courses in the same cohort?", a:"Yes, when the two courses meet on different schedules. We cap it at two courses per student per cohort. Indicate interest on the application, rank preferences for the second course, and we confirm the schedule works before admitting into both."},
     {q:"Who teaches the courses?", a:"University professors with real subject-matter depth, not teaching assistants or graduate students. We list a course's faculty status plainly. A course marked faculty confirmed has a professor in place; a course marked faculty match in progress does not yet, and we will not run it until it does."},
     {q:"When do cohorts run?", a:"Our inaugural cohort runs in spring 2027, February through April. We plan to add summer and fall cohorts after that, depending on demand."},
-    {q:"What is the research mentorship, and can anyone apply for it?", a:"It is an optional, eight-hour, one-on-one Apprenticeship Project with the same professor a student already worked with in a course. It is only available to students who have completed a Vellum course, we do not open it to outside applicants."},
-    {q:"How is this different from a research-mentorship company?", a:"Most paid research programs match a student to a mentor they have never met. Ours follows a live seminar the student already completed with the professor, so the relationship is real before any Apprenticeship Project begins. There are no gimmicks, no publishing in an affiliated journal, no manufactured credential. We focus on real project outcomes a student can speak to with substance and highlight in their college applications."},
+    {q:"What is the research mentorship, and can anyone apply for it?", a:"It is optional, eight-hour, one-on-one guided research or apprenticeship with the same professor a student already worked with in a course. It is only available to students who have completed a Vellum course, we do not open it to outside applicants."},
+    {q:"How is this different from a research-mentorship company?", a:"Most paid research programs match a student to a mentor they have never met. Ours follows a live seminar the student already completed with the professor, so the relationship is real before any guided research or apprenticeship begins. There are no gimmicks, no publishing in an affiliated journal, no manufactured credential. We focus on real project outcomes a student can speak to with substance and highlight in their college applications."},
   ];
   const faqList = document.getElementById('faqList');
   FAQS.forEach((item) => {
