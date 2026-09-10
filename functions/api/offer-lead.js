@@ -1,8 +1,7 @@
 import { computeOfferTotals } from '../_lib/pricing.js';
 import { json, verifySession } from '../_lib/session.js';
 
-const PAYMENT_METHODS = new Set(['card', 'ach', 'invoice']);
-const MAX_NOTE = 2000;
+export const PAYMENT_METHODS = new Set(['card', 'ach']);
 const MAX_FIELD = 200;
 
 function clean(value, max) {
@@ -11,6 +10,19 @@ function clean(value, max) {
 
 function isEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+export function normalizePaymentMethod(value) {
+  return clean(value, 20).toLowerCase();
+}
+
+export function isAcceptedPaymentMethod(value) {
+  return PAYMENT_METHODS.has(normalizePaymentMethod(value));
+}
+
+export function normalizeLeadNotes() {
+  // Notes are no longer collected. Tolerate omitted or leftover payloads.
+  return '';
 }
 
 export async function onRequestPost(context) {
@@ -40,15 +52,15 @@ export async function onRequestPost(context) {
   const studentName = clean(body.studentName, MAX_FIELD);
   const email = clean(body.email, MAX_FIELD);
   const phone = clean(body.phone, 40);
-  const notes = clean(body.notes, MAX_NOTE);
-  const paymentMethod = clean(body.paymentMethod, 20).toLowerCase();
+  const notes = normalizeLeadNotes(body.notes);
+  const paymentMethod = normalizePaymentMethod(body.paymentMethod);
   const seminarCount = Number(body.seminarCount) === 2 ? 2 : 1;
   const includeResearch = body.includeResearch === true
     || body.includeResearch === 'true'
     || body.includeResearch === '1'
     || body.includeResearch === 'on';
 
-  if (!parentName || !studentName || !isEmail(email) || !PAYMENT_METHODS.has(paymentMethod)) {
+  if (!parentName || !studentName || !isEmail(email) || !isAcceptedPaymentMethod(paymentMethod)) {
     return json({ ok: false, error: 'invalid_fields' }, 400);
   }
 

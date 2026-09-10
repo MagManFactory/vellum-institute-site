@@ -72,7 +72,7 @@ A plain static server (`python3 -m http.server`) can show the HTML, but it will 
 - Guided research / apprenticeship add-on: **$3,300** (8 hours; after the seminar; same professor)
 - Two seminars: **10% off seminar tuition only** (not the research add-on)
 - Seats: first come, first served
-- Payment options are UI placeholders (card / ACH / invoice). Interest only.
+- Payment options are UI placeholders (card / ACH). Interest only.
 
 ## Tests
 

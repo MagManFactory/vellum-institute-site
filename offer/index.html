@@ -161,7 +161,7 @@
         </label>
         <div class="cart" id="cart" aria-live="polite"></div>
         <div class="interest-note">
-          <strong>Interest only.</strong> Submitting this form does not enroll anyone, reserve a seat, or take a payment. Card, ACH, and invoice are preferences so we know how a family would like to pay if they later enroll.
+          <strong>Interest only.</strong> Submitting this form does not enroll anyone, reserve a seat, or take a payment. Card and ACH are preferences so we know how a family would like to pay if they later enroll.
         </div>
 
         <div class="section-mark" style="margin:36px 0 18px;"><span class="idx">03</span><span class="idx-total">/03</span><span class="rule"></span><span class="eyebrow">Payment preference</span></div>
@@ -178,13 +178,6 @@
             <span>
               <strong>ACH / bank transfer</strong>
               <span>Placeholder only. Bank details would be shared later if you enroll. Nothing is debited from this page.</span>
-            </span>
-          </label>
-          <label class="pay-option">
-            <input type="radio" name="paymentMethod" value="invoice">
-            <span>
-              <strong>Invoice</strong>
-              <span>Placeholder only. We would send an invoice if you enroll. This is not a bill.</span>
             </span>
           </label>
         </div>
@@ -207,12 +200,6 @@
           <div class="form-field">
             <label for="phone">Phone <span style="text-transform:none; letter-spacing:0; color:var(--text-soft);">(optional)</span></label>
             <input type="tel" id="phone" name="phone" autocomplete="tel">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field full">
-            <label for="notes">Anything we should know</label>
-            <textarea id="notes" name="notes" placeholder="Course interests, timing, or questions. Optional."></textarea>
           </div>
         </div>
         <div class="hp-field" aria-hidden="true">
@@ -342,7 +329,6 @@
           studentName: form.studentName.value.trim(),
           email: form.email.value.trim(),
           phone: form.phone.value.trim(),
-          notes: form.notes.value.trim(),
           seminarCount: totals.seminarCount,
           includeResearch: totals.includeResearch,
           paymentMethod: payment.value,
