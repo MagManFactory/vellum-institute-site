@@ -53,6 +53,7 @@
   .pay-option strong{display:block; font-size:15px; color:var(--ink); margin-bottom:3px; text-transform:none; letter-spacing:0; font-family:var(--font-body);}
   .pay-option span{display:block; font-size:13px; color:var(--text-soft); font-weight:400; text-transform:none; letter-spacing:0; font-family:var(--font-body);}
   .config-layout{display:grid; grid-template-columns:0.95fr 1.05fr; gap:clamp(32px,5vw,72px); align-items:start;}
+  .config-copy{position:sticky; top:calc(var(--nav-h) + 24px);}
   .apply-panel .btn-primary{width:100%; justify-content:center; margin-top:10px;}
   @media (max-width:980px){
     .rates-grid,.config-layout,.choice-row{grid-template-columns:1fr;}
@@ -129,7 +130,7 @@
 
 <section class="apply" id="interest">
   <div class="wrap config-layout">
-    <div>
+    <div class="config-copy">
       <div class="section-mark"><span class="idx">02</span><span class="idx-total">/03</span><span class="rule"></span><span class="eyebrow">Configure</span></div>
       <h2 class="headline">Build the combination you want to discuss</h2>
       <p class="body-lg">Choose one or two seminars and, if you want to go further later, the optional research add-on. The cart updates as you choose. The 10% bundle applies only when two seminars are selected, and only to seminar tuition.</p>
