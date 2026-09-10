@@ -3,3 +3,15 @@
 
 /robots.txt
   Content-Type: text/plain; charset=utf-8
+
+/offer/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/offer/unlock.html
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/tuition/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

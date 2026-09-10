@@ -7,5 +7,7 @@ User-agent: *
 Content-Signal: search=yes,ai-train=no,use=reference
 Allow: /
 Disallow: /partner-survey.html
+Disallow: /offer/
+Disallow: /tuition/
 
 Sitemap: https://velluminstitute.org/sitemap.xml

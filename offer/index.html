@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W4TVNVLX3X"></script>
+<script src="/js/gtag.js"></script>
+<title>Seminar tuition | Vellum Institute</title>
+<link rel="canonical" href="https://velluminstitute.org/offer/">
+<meta name="description" content="Unlisted seminar tuition and interest form for families who have been given access by Vellum Institute.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M6 8h9l9 26 9-26h9L28 42h-8L6 8z' fill='%23A9803F'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/css/site-core.css">
+<style>
+  .rates{background:var(--bg-deep);}
+  .rates-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(20px,3vw,32px); margin-top:40px;}
+  .choice-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .choice{
+    display:flex; flex-direction:column; gap:6px; text-align:left;
+    border:1px solid var(--line); border-radius:6px; padding:16px 18px; background:var(--paper); cursor:pointer;
+    transition:border-color var(--dur-fast), box-shadow var(--dur-fast);
+  }
+  .choice:has(input:checked), .choice.is-selected{
+    border-color:var(--ink); box-shadow:0 0 0 1px var(--ink);
+  }
+  .choice input{accent-color:var(--ink);}
+  .choice strong{font-family:var(--font-display); font-size:18px; color:var(--ink); font-weight:600; text-transform:none; letter-spacing:0;}
+  .choice span{font-family:var(--font-body); font-size:13.5px; color:var(--text-soft); text-transform:none; letter-spacing:0; font-weight:400;}
+  .addon-toggle{display:flex; align-items:flex-start; gap:12px; cursor:pointer; padding:18px 0 6px;}
+  .addon-toggle input{width:18px; height:18px; margin-top:3px; accent-color:var(--ink); flex-shrink:0;}
+  .addon-toggle strong{display:block; font-family:var(--font-body); font-size:15px; text-transform:none; letter-spacing:0; color:var(--ink); margin-bottom:4px;}
+  .addon-toggle p{font-family:var(--font-body); font-size:13.5px; font-weight:400; text-transform:none; letter-spacing:0; color:var(--text-soft); line-height:1.55;}
+  .cart{margin-top:28px; border-top:1px solid var(--line); padding-top:22px;}
+  .cart-row{display:flex; justify-content:space-between; gap:16px; font-size:14.5px; padding:8px 0; color:var(--text);}
+  .cart-row .muted{color:var(--text-soft);}
+  .cart-row.discount{color:#3C6B33;}
+  .cart-row.total{border-top:1px solid var(--line); margin-top:10px; padding-top:16px; font-family:var(--font-display); font-size:22px; color:var(--ink);}
+  .interest-note{
+    margin-top:22px; padding:16px 18px; background:var(--bg-deep); border-radius:6px;
+    font-size:13.5px; color:var(--text-soft); line-height:1.55;
+  }
+  .interest-note strong{color:var(--ink);}
+  .pay-grid{display:grid; grid-template-columns:1fr; gap:10px;}
+  .pay-option{
+    display:grid; grid-template-columns:22px 1fr; gap:12px; align-items:flex-start;
+    border:1px solid var(--line); border-radius:6px; padding:14px 16px; cursor:pointer; background:var(--paper);
+  }
+  .pay-option:has(input:checked){border-color:var(--ink); box-shadow:0 0 0 1px var(--ink);}
+  .pay-option input{margin-top:3px; accent-color:var(--ink);}
+  .pay-option strong{display:block; font-size:15px; color:var(--ink); margin-bottom:3px; text-transform:none; letter-spacing:0; font-family:var(--font-body);}
+  .pay-option span{display:block; font-size:13px; color:var(--text-soft); font-weight:400; text-transform:none; letter-spacing:0; font-family:var(--font-body);}
+  .config-layout{display:grid; grid-template-columns:0.95fr 1.05fr; gap:clamp(32px,5vw,72px); align-items:start;}
+  .apply-panel .btn-primary{width:100%; justify-content:center; margin-top:10px;}
+  @media (max-width:980px){
+    .rates-grid,.config-layout,.choice-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <svg class="brand-mark" width="30" height="30" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 8h9l9 26 9-26h9L28 42h-8L6 8z" fill="#A9803F"/></svg>
+      <span class="brand-word">Vellum Institute</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/#courses">Courses</a>
+      <a href="/#how">How it works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#research">Guided research</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/newsletter/">Newsletter</a>
+      <a href="/about/">About</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="/#apply" class="btn-primary">Apply now</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#courses">Courses</a>
+    <a href="/#how">How it works</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/#research">Guided research</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/newsletter/">Newsletter</a>
+    <a href="/about/">About</a>
+    <a href="/#apply">Apply now</a>
+  </div>
+</header>
+
+<section class="page-hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow-standalone">Unlisted · first come, first served</span>
+    <h1>Seminar tuition, written out.</h1>
+    <p class="lead">Seats are first come, first served once a family is ready to enroll. This page collects interest only. There is no charge, no deposit, and no payment processor on this form.</p>
+  </div>
+</section>
+
+<section class="rates">
+  <div class="wrap">
+    <div class="section-mark"><span class="idx">01</span><span class="idx-total">/03</span><span class="rule"></span><span class="eyebrow">Rates</span></div>
+    <h2 class="headline">The same figures for every family on this page</h2>
+    <div class="rates-grid">
+      <div class="price-panel">
+        <span class="tag-mono">Seminar</span>
+        <div class="price-amount">$1,750 <span>per seminar</span></div>
+        <p class="price-desc">Eight weekly, ninety-minute live sessions, capped at fifteen students.</p>
+        <ul class="price-list">
+          <li>Two seminars in the same cohort: 10% off seminar tuition only</li>
+          <li>The bundle does not discount the research add-on</li>
+        </ul>
+      </div>
+      <div class="price-panel">
+        <span class="tag-mono">Guided research / apprenticeship</span>
+        <div class="price-amount">$3,300 <span>add-on</span></div>
+        <p class="price-desc">Eight hours, one-on-one, after the seminar, with the same professor.</p>
+        <ul class="price-list">
+          <li>Only open after a completed Vellum seminar</li>
+          <li>Same professor, building on work already started</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply" id="interest">
+  <div class="wrap config-layout">
+    <div>
+      <div class="section-mark"><span class="idx">02</span><span class="idx-total">/03</span><span class="rule"></span><span class="eyebrow">Configure</span></div>
+      <h2 class="headline">Build the combination you want to discuss</h2>
+      <p class="body-lg">Choose one or two seminars and, if you want to go further later, the optional research add-on. The cart updates as you choose. The 10% bundle applies only when two seminars are selected, and only to seminar tuition.</p>
+    </div>
+    <div class="paper-card apply-panel">
+      <form id="offerForm">
+        <div class="form-field full" style="margin-bottom:22px;">
+          <label id="seminarLabel">Seminars</label>
+          <div class="choice-row" role="radiogroup" aria-labelledby="seminarLabel">
+            <label class="choice is-selected">
+              <input type="radio" name="seminarCount" value="1" checked>
+              <strong>1 seminar</strong>
+              <span>$1,750 seminar tuition</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="seminarCount" value="2">
+              <strong>2 seminars</strong>
+              <span>10% off seminar tuition</span>
+            </label>
+          </div>
+        </div>
+        <label class="addon-toggle">
+          <input type="checkbox" id="includeResearch" name="includeResearch">
+          <span>
+            <strong>Add guided research / apprenticeship</strong>
+            <p>$3,300 for eight hours after the seminar, with the same professor. This line is never discounted by the two-seminar bundle.</p>
+          </span>
+        </label>
+        <div class="cart" id="cart" aria-live="polite"></div>
+        <div class="interest-note">
+          <strong>Interest only.</strong> Submitting this form does not enroll anyone, reserve a seat, or take a payment. Card, ACH, and invoice are preferences so we know how a family would like to pay if they later enroll.
+        </div>
+
+        <div class="section-mark" style="margin:36px 0 18px;"><span class="idx">03</span><span class="idx-total">/03</span><span class="rule"></span><span class="eyebrow">Payment preference</span></div>
+        <div class="pay-grid" role="radiogroup" aria-label="Preferred payment method">
+          <label class="pay-option">
+            <input type="radio" name="paymentMethod" value="card" required>
+            <span>
+              <strong>Card</strong>
+              <span>Placeholder only. If you enroll later, we would send a card-payment link. No card number is collected here.</span>
+            </span>
+          </label>
+          <label class="pay-option">
+            <input type="radio" name="paymentMethod" value="ach">
+            <span>
+              <strong>ACH / bank transfer</strong>
+              <span>Placeholder only. Bank details would be shared later if you enroll. Nothing is debited from this page.</span>
+            </span>
+          </label>
+          <label class="pay-option">
+            <input type="radio" name="paymentMethod" value="invoice">
+            <span>
+              <strong>Invoice</strong>
+              <span>Placeholder only. We would send an invoice if you enroll. This is not a bill.</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="form-row" style="margin-top:32px;">
+          <div class="form-field">
+            <label for="parentName">Parent / guardian name</label>
+            <input type="text" id="parentName" name="parentName" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="studentName">Student name</label>
+            <input type="text" id="studentName" name="studentName" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone <span style="text-transform:none; letter-spacing:0; color:var(--text-soft);">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label for="notes">Anything we should know</label>
+            <textarea id="notes" name="notes" placeholder="Course interests, timing, or questions. Optional."></textarea>
+          </div>
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-primary">Submit interest</button>
+        <p class="form-note">By submitting, you agree to be contacted about this interest. No payment is taken today.</p>
+      </form>
+      <div class="success-msg" id="successMsg">
+        <h3>Thank you, we have your interest</h3>
+        <p>This was not a charge and not an enrollment. A member of our team will follow up about seats and next steps.</p>
+      </div>
+      <div class="error-msg" id="errorMsg">
+        <h3>Something went wrong</h3>
+        <p>We could not record that just now. Please try again, or email <a href="mailto:valerie.angstrom@velluminstitute.org">valerie.angstrom@velluminstitute.org</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-mark">
+        <svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 8h9l9 26 9-26h9L28 42h-8L6 8z" fill="#A9803F"/></svg>
+        Vellum Institute
+      </div>
+      <p class="tag">A small, application-based online institute pairing high school students with university faculty, then a real research relationship.</p>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/#courses">Courses</a></li>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#research">Guided research</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Institute</h5>
+      <ul>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/counselors/">Counselors</a></li>
+        <li><a href="/#apply">Apply</a></li>
+        <li><a href="mailto:valerie.angstrom@velluminstitute.org">Contact us</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Cohorts</h5>
+      <ul>
+        <li>Spring 2027 cohort: February&ndash;April (inaugural)</li>
+        <li>Summer cohort: July&ndash;August</li>
+        <li>Fall cohort: October&ndash;December</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-word"><span>VELLUM INSTITUTE</span></div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Vellum Institute. All rights reserved. · <a href="/privacy/">Privacy</a></span>
+    <span>Unlisted page. Seats are first come, first served.</span>
+  </div>
+</footer>
+
+<script src="/js/site-nav.js"></script>
+<script type="module">
+  import { computeOfferTotals, formatUsd } from '/js/offer-pricing.js';
+
+  const form = document.getElementById('offerForm');
+  const cart = document.getElementById('cart');
+  const successMsg = document.getElementById('successMsg');
+  const errorMsg = document.getElementById('errorMsg');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitLabel = submitBtn.textContent;
+
+  function selectedCount() {
+    const checked = form.querySelector('input[name="seminarCount"]:checked');
+    return checked ? Number(checked.value) : 1;
+  }
+
+  function renderCart() {
+    const totals = computeOfferTotals(selectedCount(), form.includeResearch.checked);
+    const seminarLabel = totals.seminarCount === 2
+      ? `Seminar tuition (2 × ${formatUsd(totals.seminarUnitPrice)})`
+      : `Seminar tuition (1 × ${formatUsd(totals.seminarUnitPrice)})`;
+    const discountRow = totals.bundleApplied
+      ? `<div class="cart-row discount"><span>Bundle discount (10% on seminar tuition only)</span><span>${formatUsd(-totals.seminarDiscount)}</span></div>`
+      : `<div class="cart-row muted"><span>Bundle discount (two seminars only; never the research add-on)</span><span>${formatUsd(0)}</span></div>`;
+    const researchRow = totals.includeResearch
+      ? `<div class="cart-row"><span>Guided research / apprenticeship add-on</span><span>${formatUsd(totals.researchTotal)}</span></div>`
+      : `<div class="cart-row muted"><span>Guided research / apprenticeship add-on</span><span>${formatUsd(0)}</span></div>`;
+    cart.innerHTML = `
+      <div class="cart-row"><span>${seminarLabel}</span><span>${formatUsd(totals.seminarSubtotal)}</span></div>
+      ${discountRow}
+      ${researchRow}
+      <div class="cart-row total"><span>Interest total</span><span>${formatUsd(totals.grandTotal)}</span></div>
+    `;
+    form.querySelectorAll('.choice').forEach((label) => {
+      const input = label.querySelector('input');
+      label.classList.toggle('is-selected', !!(input && input.checked));
+    });
+    return totals;
+  }
+
+  form.addEventListener('change', renderCart);
+  renderCart();
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (errorMsg) errorMsg.style.display = 'none';
+    const totals = renderCart();
+    const payment = form.querySelector('input[name="paymentMethod"]:checked');
+    if (!payment) {
+      const first = form.querySelector('input[name="paymentMethod"]');
+      if (first && first.reportValidity) first.reportValidity();
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const resp = await fetch('/api/offer-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          parentName: form.parentName.value.trim(),
+          studentName: form.studentName.value.trim(),
+          email: form.email.value.trim(),
+          phone: form.phone.value.trim(),
+          notes: form.notes.value.trim(),
+          seminarCount: totals.seminarCount,
+          includeResearch: totals.includeResearch,
+          paymentMethod: payment.value,
+          website: form.website.value,
+        }),
+      });
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok || !data.ok) throw new Error('lead failed');
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitLabel;
+      errorMsg.style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
