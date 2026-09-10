@@ -11,11 +11,12 @@
 <meta property="og:description" content="A short, gated survey for college counselors and advisors. Complete it and receive The Hidden Rules of College handbook.">
 <meta property="og:url" content="https://velluminstitute.org/counselors/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://velluminstitute.org/images/why-vellum-manuscript.jpg">
+<meta property="og:image" content="https://velluminstitute.org/images/hidden-rules-cover.jpg">
 <meta property="og:site_name" content="Vellum Institute">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Counselors &amp; advisors | Vellum Institute">
 <meta name="twitter:description" content="A short, gated survey for college counselors and advisors. Complete it and receive The Hidden Rules of College handbook.">
+<meta name="twitter:image" content="https://velluminstitute.org/images/hidden-rules-cover.jpg">
 <meta name="description" content="A short, gated survey for college counselors and advisors. Complete it and receive The Hidden Rules of College handbook.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +33,21 @@
   .gift-panel .tag-mono{color:var(--accent-light);}
   .gift-panel h2{color:#fff; font-size:clamp(1.7rem, 1.4rem + 1.2vw, 2.3rem); margin-bottom:12px;}
   .gift-panel p{color:#C9D2DE; font-size:15px;}
+  .gift-cover-frame{
+    margin:0 0 26px;
+    padding:12px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(11,21,32,0.28));
+    border:1px solid rgba(201,160,92,0.52);
+    border-radius:3px;
+    box-shadow:0 26px 46px -20px rgba(0,0,0,0.62), inset 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .gift-cover-frame img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:1px;
+    box-shadow:0 10px 24px -12px rgba(0,0,0,0.55);
+  }
   .hero-actions{display:flex; align-items:center; gap:28px; flex-wrap:wrap; margin-top:32px;}
   @media (max-width:900px){ .counselor-layout{grid-template-columns:1fr;} }
 </style>
@@ -74,13 +90,16 @@
     <div>
       <span class="eyebrow-standalone">For counselors and advisors</span>
       <h1>A short survey, then a handbook.</h1>
-      <p class="lead">You see which enrichment options actually help students, and which ones they ignore. We are asking counselors and independent advisors for that view before we lock later cohorts. The questionnaire itself lives on a separate, password-gated host. It is not embedded here.</p>
+      <p class="lead">You see which enrichment options actually help students, and which ones they ignore. We are asking counselors and independent advisors for that view before we lock later cohorts. The questionnaire lives on a separate host behind a short gate: a declaration, your name and contact details, and a soft verification step. It is not a shared password, and it is not embedded here.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://vellum-counselor-survey.pages.dev/gate">Go to the survey gate</a>
         <a class="text-link" href="/#faq">Read the FAQ <span class="arrow">&rarr;</span></a>
       </div>
     </div>
     <aside class="paper-card gift-panel">
+      <figure class="gift-cover-frame">
+        <img src="/images/hidden-rules-cover.jpg" alt="Cover of The Hidden Rules of College, a Vellum Institute handbook for counselors" width="864" height="1152">
+      </figure>
       <span class="tag-mono">Free gift</span>
       <h2>The Hidden Rules of College</h2>
       <p>Complete the counselor survey and we will send the handbook. It is our thank-you for the time, not a sales document and not a condition of referring a student.</p>
@@ -92,13 +111,13 @@
   <div class="wrap">
     <div class="section-mark"><span class="idx">01</span><span class="idx-total">/02</span><span class="rule"></span><span class="eyebrow">How the gate works</span></div>
     <h2 class="headline">Why the survey is on another host</h2>
-    <p class="body-lg">The public Vellum site stays focused on families. The counselor questionnaire is unlisted, password-protected, and kept off this domain so it is not mixed into the student application flow.</p>
+    <p class="body-lg">The public Vellum site stays focused on families. The counselor questionnaire is unlisted and kept off this domain so it is not mixed into the student application flow. Entry is a declaration plus name and contact, with a soft verification check &mdash; not a shared counselor password.</p>
     <div class="steps-list">
       <div class="step-row">
         <span class="section-mark" style="margin:0;"><span class="idx">01</span></span>
         <div>
           <h3>Open the gated entry</h3>
-          <p>The button above goes to <a class="text-link" href="https://vellum-counselor-survey.pages.dev/gate" style="display:inline;">vellum-counselor-survey.pages.dev/gate</a>. That page asks for the counselor password. We share the password directly with counselors and advisors.</p>
+          <p>The button above goes to <a class="text-link" href="https://vellum-counselor-survey.pages.dev/gate" style="display:inline;">vellum-counselor-survey.pages.dev/gate</a>. That page asks you to declare that you are a counselor or advisor, leave your name and contact details, and complete a short soft-verification step. There is no shared password.</p>
         </div>
       </div>
       <div class="step-row">
@@ -129,7 +148,7 @@
     <div class="paper-card">
       <span class="tag-mono">Start here</span>
       <h3 style="font-size:24px; margin-bottom:12px;">Ready for the gate?</h3>
-      <p class="price-desc" style="margin-bottom:24px;">You will leave velluminstitute.org and enter the survey host. Have the counselor password with you.</p>
+      <p class="price-desc" style="margin-bottom:24px;">You will leave velluminstitute.org and enter the survey host. Declare your role, leave your name and contact details, and complete a short soft check. No shared password is required.</p>
       <a class="btn-primary" href="https://vellum-counselor-survey.pages.dev/gate">Continue to the survey gate</a>
     </div>
   </div>
