@@ -15,3 +15,7 @@
 /tuition/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
+
+/full-application.html
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

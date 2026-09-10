@@ -10,11 +10,12 @@ Public pricing on the homepage stays **By inquiry**. Dollar figures live only on
 | --- | --- | --- |
 | `/` | yes | Public homepage. Pricing remains by inquiry. |
 | `/counselors/` | yes | Explains the counselor survey gate. Does not embed the questionnaire. |
-| `/offer/` | no | Gated tuition + interest configurator. Not in primary nav or the sitemap. |
+| `/offer/` | no | Gated tuition configurator + Spring 2027 full application. Not in primary nav or the sitemap. |
 | `/offer/unlock.html` | no | Password form for `/offer/`. |
 | `/tuition/` | no | Redirects to `/offer/`. |
+| `/full-application.html` | no | Redirects to `/offer/` (old links enter the gated flow). |
 | `/api/offer-unlock` | — | Pages Function. Checks `PRICING_GATE_PASSWORD`, sets an HttpOnly cookie. |
-| `/api/offer-lead` | — | Pages Function. Accepts interest only. No Stripe, no charges. |
+| `/api/offer-lead` | — | Pages Function. Optional secondary write after a successful application. No Stripe, no charges. |
 
 Counselor survey questionnaire: [https://vellum-counselor-survey.pages.dev/gate](https://vellum-counselor-survey.pages.dev/gate) (separate host).
 
@@ -72,10 +73,13 @@ A plain static server (`python3 -m http.server`) can show the HTML, but it will 
 - Guided research / apprenticeship add-on: **$3,300** (8 hours; after the seminar; same professor)
 - Two seminars: **10% off seminar tuition only** (not the research add-on)
 - Seats: first come, first served
-- Payment options are UI placeholders (card / ACH). Interest only.
+- Payment options are UI placeholders (card / ACH). No charge on submit.
+- One submit on `/offer/` writes the full application to the Spring 2027 Apps Script endpoint (same `/exec` URL as the former `full-application.html` page). Package totals go in the existing `notes` field plus dedicated pricing keys so ID minting (`27SPRC###`) stays server-side. An optional `/api/offer-lead` POST may follow; application success does not depend on it.
 
 ## Tests
 
 ```bash
 node scripts/test-offer-pricing.mjs
 ```
+
+The same script also checks that `/offer/` has no invoice option or notes field, and that application payloads keep `source: 'full-application'` with pricing written into `notes`.

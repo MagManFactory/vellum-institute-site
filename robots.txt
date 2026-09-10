@@ -9,5 +9,6 @@ Allow: /
 Disallow: /partner-survey.html
 Disallow: /offer/
 Disallow: /tuition/
+Disallow: /full-application.html
 
 Sitemap: https://velluminstitute.org/sitemap.xml
