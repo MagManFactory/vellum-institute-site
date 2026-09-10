@@ -1,0 +1,11 @@
+# Public pages may be indexed.
+# Cloudflare currently injects a Content-Signals preamble (search / ai-train / use)
+# and bot-specific Disallow rules ahead of this file. Keep or augment those
+# signals rather than fighting them. This Sitemap line must remain after deploy.
+
+User-agent: *
+Content-Signal: search=yes,ai-train=no,use=reference
+Allow: /
+Disallow: /partner-survey.html
+
+Sitemap: https://velluminstitute.org/sitemap.xml
