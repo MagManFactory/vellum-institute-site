@@ -28,6 +28,8 @@ Counselor survey questionnaire: [https://vellum-counselor-survey.pages.dev/gate]
    | `PRICING_GATE_PASSWORD` | yes | Shared password for `/offer/`. Do not commit a real value. |
    | `OFFER_LEAD_WEBHOOK` | no | HTTPS URL that accepts a JSON POST of an offer lead. |
 
+Production secret `PRICING_GATE_PASSWORD` is set via wrangler/dashboard; redeploy required after rotate.
+
 3. Optional D1: create a database, bind it as `DB`, and the lead function will create `offer_leads` on first successful write.
 
    ```sql
