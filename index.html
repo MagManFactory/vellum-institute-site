@@ -258,6 +258,7 @@
   .faq-item.open .plus{transform:rotate(45deg);}
   .faq-a{max-height:0; overflow:hidden; transition:max-height var(--dur-med) var(--ease);}
   .faq-a p{padding-bottom:26px; font-size:15.5px; color:var(--text-soft); max-width:70ch;}
+  .faq-a a{color:var(--ink); font-weight:600; border-bottom:1px solid var(--accent);}
 
   /* ---------- CTA BAND ---------- */
   .cta-band{background:var(--ink); color:#fff; text-align:left; padding:clamp(64px,8vw,110px) 0;}
@@ -265,6 +266,15 @@
   .cta-band h2{color:#fff; font-size:clamp(2rem, 1.5rem + 2vw, 3.2rem); margin-bottom:18px; line-height:1.08;}
   .cta-band p{color:#C9D2DE; font-size:16.5px; margin-bottom:36px; max-width:52ch;}
   .cta-actions{display:flex; align-items:center; gap:32px; flex-wrap:wrap;}
+
+  /* ---------- COUNSELOR INVITE ---------- */
+  .counselor-invite{background:var(--bg-deep);}
+  .counselor-invite-layout{display:grid; grid-template-columns:1.1fr 0.9fr; gap:clamp(32px,5vw,72px); align-items:center;}
+  .gift-teaser{background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:clamp(28px,4vw,40px); box-shadow:0 30px 60px -34px rgba(18,32,46,0.22);}
+  .gift-teaser .tag-mono{font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:14px;}
+  .gift-teaser h3{font-size:24px; margin-bottom:12px;}
+  .gift-teaser p{color:var(--text-soft); font-size:14.5px;}
+  .counselor-invite .hero-actions{margin-top:28px;}
 
   /* ---------- APPLY ---------- */
   .apply{background:var(--bg-deep);}
@@ -341,6 +351,7 @@
     .pricing-layout{grid-template-columns:1fr;}
     .research-layout{grid-template-columns:1fr; gap:40px;}
     .apply-layout{grid-template-columns:1fr;}
+    .counselor-invite-layout{grid-template-columns:1fr;}
     .steps{grid-template-columns:1fr 1fr;}
     .footer-top{grid-template-columns:1fr 1fr;}
     .course-row{grid-template-columns:36px 1fr; grid-template-areas:"idx main" ". meta"; }
@@ -408,6 +419,7 @@
       <div class="hero-actions">
         <a href="#apply" class="btn-primary">Apply</a>
         <a href="#courses" class="text-link">View the courses <span class="arrow">&rarr;</span></a>
+        <a href="/counselors/" class="text-link">Counselors &amp; advisors <span class="arrow">&rarr;</span></a>
       </div>
     </div>
     <aside class="hero-note reveal">
@@ -637,6 +649,26 @@
   </div>
 </section>
 
+<!-- COUNSELORS -->
+<section class="counselor-invite" id="for-counselors">
+  <div class="wrap counselor-invite-layout">
+    <div>
+      <span class="eyebrow-standalone">Counselors &amp; advisors</span>
+      <h2 class="headline">Tell us how you advise, and take the handbook</h2>
+      <p class="body-lg">We keep a short survey for school counselors and independent advisors. Finish it and we send <em>The Hidden Rules of College</em> as a thank-you. The questionnaire is gated on a separate host; this site only explains how to get there.</p>
+      <div class="hero-actions">
+        <a href="/counselors/" class="btn-primary">Counselor survey details</a>
+        <a href="https://vellum-counselor-survey.pages.dev/gate" class="text-link">Go to the gated entry <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+    <aside class="gift-teaser">
+      <span class="tag-mono">Free gift</span>
+      <h3>The Hidden Rules of College</h3>
+      <p>A handbook for counselors, sent after you complete the survey. Not a family application step, and not required to refer a student.</p>
+    </aside>
+  </div>
+</section>
+
 <!-- CTA BAND -->
 <section class="cta-band">
   <div class="wrap cta-inner">
@@ -775,6 +807,7 @@
       <h5>Institute</h5>
       <ul>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="/counselors/">Counselors</a></li>
         <li><a href="#apply">Apply</a></li>
         <li><a href="mailto:valerie.angstrom@velluminstitute.org">Contact us</a></li>
         <li><a href="/privacy/">Privacy</a></li>
@@ -850,6 +883,10 @@
     {q:"When do cohorts run?", a:"Our inaugural cohort runs in spring 2027, February through April. We plan to add summer and fall cohorts after that, depending on demand."},
     {q:"What is the research mentorship, and can anyone apply for it?", a:"It is optional, eight-hour, one-on-one guided research or apprenticeship with the same professor a student already worked with in a course. It is only available to students who have completed a Vellum course, we do not open it to outside applicants."},
     {q:"How is this different from a research-mentorship company?", a:"Most paid research programs match a student to a mentor they have never met. Ours follows a live seminar the student already completed with the professor, so the relationship is real before any guided research or apprenticeship begins. There are no gimmicks, no publishing in an affiliated journal, no manufactured credential. We focus on real project outcomes a student can speak to with substance and highlight in their college applications."},
+    {q:"What is the counselor survey?", a:"It is a short questionnaire for college counselors and independent advisors about how students choose enrichment. The questions live on a separate, password-gated host. Families use the inquiry form on this site instead. Start at the <a href=\"/counselors/\">counselor page</a>."},
+    {q:"Who is the counselor survey for?", a:"School counselors and independent college advisors who work with high school students. It is not for parents or students. If that is you, <a href=\"/counselors/\">the counselor landing</a> explains the gate and links to it."},
+    {q:"Is there a free handbook for counselors?", a:"Yes. Counselors and advisors who complete the survey receive <em>The Hidden Rules of College</em>, a handbook we send as a thank-you. Details and the gated entry are on the <a href=\"/counselors/\">counselors page</a>."},
+    {q:"How do I reach the counselor survey gate?", a:"Open <a href=\"/counselors/\">velluminstitute.org/counselors</a> and continue to the gated entry at <a href=\"https://vellum-counselor-survey.pages.dev/gate\">vellum-counselor-survey.pages.dev/gate</a>. You will need the counselor password we share directly."},
   ];
   const faqList = document.getElementById('faqList');
   FAQS.forEach((item) => {

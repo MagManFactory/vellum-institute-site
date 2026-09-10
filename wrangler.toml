@@ -1,0 +1,5 @@
+# Cloudflare Pages project config for local `wrangler pages dev`.
+# Secrets stay in the Pages dashboard or .dev.vars — never in this file.
+name = "vellum-institute-site"
+compatibility_date = "2026-01-15"
+pages_build_output_dir = "."

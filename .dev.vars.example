@@ -1,0 +1,7 @@
+# Copy to .dev.vars for `npx wrangler pages dev`.
+# Never commit a real password. Set the same name in the Cloudflare Pages
+# dashboard (Settings → Environment variables) for Production and Preview.
+PRICING_GATE_PASSWORD=replace-with-a-long-random-secret
+
+# Optional: HTTPS endpoint that accepts a JSON POST of an offer lead.
+# OFFER_LEAD_WEBHOOK=
