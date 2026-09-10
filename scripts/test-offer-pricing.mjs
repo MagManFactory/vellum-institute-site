@@ -12,6 +12,7 @@ import {
 import {
   APPLICATION_ENDPOINT,
   APPLICATION_TEXT_IDS,
+  COURSES,
   buildApplicationPayload,
   buildOfferLeadPayload,
   formatPricingNotes,
@@ -108,5 +109,30 @@ assert.equal(offerHtml.includes('Anything else we should know'), false);
 assert.equal(offerHtml.includes('id="notes"'), false);
 assert.match(fullAppHtml, /url=\/offer\//);
 assert.match(redirects, /\/full-application\.html \/offer\/ 302/);
+
+const homepageHtml = readFileSync(join(root, '../index.html'), 'utf8');
+const expectedTitles = [
+  'AI and Society',
+  'Social Entrepreneurship',
+  'Media Psychology',
+  'Geopolitics in the Age of AI',
+  'Environmental Sustainability in Business',
+  'Behavioral Economics',
+  'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime',
+];
+assert.deepEqual(COURSES, expectedTitles);
+assert.equal(COURSES.includes('Biotech Frontiers'), false);
+assert.equal(homepageHtml.includes('Biotech Frontiers'), false);
+assert.equal(offerHtml.includes('Biotech Frontiers'), false);
+
+const homepageTitles = [...homepageHtml.matchAll(/\{title:"([^"]+)", tag:"(confirmed|consideration)"/g)]
+  .map((match) => match[1]);
+assert.deepEqual(homepageTitles, expectedTitles);
+assert.match(homepageHtml, /data-filter="confirmed">FACULTY CONFIRMED/);
+assert.match(homepageHtml, /data-filter="consideration">FACULTY UNDER CONSIDERATION/);
+assert.match(homepageHtml, /statusLabel = c\.tag === 'confirmed' \? 'FACULTY CONFIRMED' : 'FACULTY UNDER CONSIDERATION'/);
+assert.equal(homepageHtml.includes('Faculty match in progress'), false);
+assert.equal(homepageHtml.includes('Faculty confirmed'), false);
+assert.match(homepageHtml, /By inquiry/);
 
 console.log('offer pricing cases passed');

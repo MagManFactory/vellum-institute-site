@@ -4,13 +4,12 @@ export const APPLICATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwm
 
 export const COURSES = [
   'AI and Society',
-  'Behavioral Economics',
   'Social Entrepreneurship',
-  'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime',
   'Media Psychology',
   'Geopolitics in the Age of AI',
-  'Biotech Frontiers',
-  'Social Equity and Opportunity',
+  'Environmental Sustainability in Business',
+  'Behavioral Economics',
+  'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime',
 ];
 
 export const APPLICATION_TEXT_IDS = [
