@@ -6,9 +6,9 @@
 <meta name="robots" content="noindex, nofollow">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4TVNVLX3X"></script>
 <script src="/js/gtag.js"></script>
-<title>Seminar tuition | Vellum Institute</title>
+<title>Seminar tuition and application | Vellum Institute</title>
 <link rel="canonical" href="https://velluminstitute.org/offer/">
-<meta name="description" content="Unlisted seminar tuition and interest form for families who have been given access by Vellum Institute.">
+<meta name="description" content="Unlisted seminar tuition and Spring 2027 application for families who have been given access by Vellum Institute.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -54,9 +54,32 @@
   .pay-option span{display:block; font-size:13px; color:var(--text-soft); font-weight:400; text-transform:none; letter-spacing:0; font-family:var(--font-body);}
   .config-layout{display:grid; grid-template-columns:0.95fr 1.05fr; gap:clamp(32px,5vw,72px); align-items:start;}
   .config-copy{position:sticky; top:calc(var(--nav-h) + 24px);}
-  .apply-panel .btn-primary{width:100%; justify-content:center; margin-top:10px;}
+  .intake-fieldset{border:none; margin:0 0 36px; padding:0;}
+  .intake-fieldset legend{
+    font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--ink);
+    padding:0 0 8px; margin-bottom:14px; width:100%; border-bottom:1px solid var(--line);
+  }
+  .fieldset-note{font-family:var(--font-body); font-size:13.5px; color:var(--text-soft); margin:0 0 16px; text-transform:none; letter-spacing:0; font-weight:400; line-height:1.55;}
+  .req{color:var(--accent); font-weight:700;}
+  .opt-tag{font-weight:500; color:var(--text-soft); font-size:12px; text-transform:none; letter-spacing:0;}
+  .school-rows{display:flex; flex-direction:column; gap:10px;}
+  .school-row{display:flex; align-items:center; gap:12px;}
+  .school-row .idx{width:20px; flex-shrink:0; font-family:var(--font-display); font-weight:600; color:var(--accent); font-size:14px;}
+  .school-row input{flex:1;}
+  .check-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 20px;}
+  .check-item{display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--text); cursor:pointer; font-family:var(--font-body); text-transform:none; letter-spacing:0; font-weight:400;}
+  .check-item input{width:16px; height:16px; margin-top:2px; accent-color:var(--ink); cursor:pointer; flex-shrink:0;}
+  .pref-ranks{display:flex; flex-direction:column; gap:16px;}
+  .pref-rank{display:flex; flex-direction:column; gap:7px;}
+  .pref-rank span{font-size:12px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; font-family:var(--font-mono);}
+  .pref-rank select:disabled{opacity:0.4; cursor:not-allowed;}
+  .second-course-block{border-top:1px dashed var(--line); padding-top:24px; margin-top:18px;}
+  .application-panel .btn-primary{margin-top:10px;}
+  .app-id-line{margin-top:18px; font-size:15px; color:var(--ink); font-weight:600;}
+  .app-id-line strong{letter-spacing:.04em;}
   @media (max-width:980px){
-    .rates-grid,.config-layout,.choice-row{grid-template-columns:1fr;}
+    .rates-grid,.config-layout,.choice-row,.check-grid{grid-template-columns:1fr;}
+    .config-copy{position:static;}
   }
 </style>
 </head>
@@ -96,8 +119,8 @@
 <section class="page-hero" id="top">
   <div class="wrap">
     <span class="eyebrow-standalone">Unlisted · first come, first served</span>
-    <h1>Seminar tuition, written out.</h1>
-    <p class="lead">Seats are first come, first served once a family is ready to enroll. This page collects interest only. There is no charge, no deposit, and no payment processor on this form.</p>
+    <h1>Seminar tuition, then the application.</h1>
+    <p class="lead">Configure the package first. Then complete the Spring 2027 student profile. Seats are first come, first served. There is no charge, no deposit, and no payment processor on this page.</p>
   </div>
 </section>
 
@@ -128,7 +151,8 @@
   </div>
 </section>
 
-<section class="apply" id="interest">
+<form id="offerForm">
+<section class="apply" id="configure">
   <div class="wrap config-layout">
     <div class="config-copy">
       <div class="section-mark"><span class="idx">02</span><span class="idx-total">/03</span><span class="rule"></span><span class="eyebrow">Configure</span></div>
@@ -136,35 +160,227 @@
       <p class="body-lg">Choose one or two seminars and, if you want to go further later, the optional research add-on. The cart updates as you choose. The 10% bundle applies only when two seminars are selected, and only to seminar tuition.</p>
     </div>
     <div class="paper-card apply-panel">
-      <form id="offerForm">
-        <div class="form-field full" style="margin-bottom:22px;">
-          <label id="seminarLabel">Seminars</label>
-          <div class="choice-row" role="radiogroup" aria-labelledby="seminarLabel">
-            <label class="choice is-selected">
-              <input type="radio" name="seminarCount" value="1" checked>
-              <strong>1 seminar</strong>
-              <span>$1,750 seminar tuition</span>
-            </label>
-            <label class="choice">
-              <input type="radio" name="seminarCount" value="2">
-              <strong>2 seminars</strong>
-              <span>10% off seminar tuition</span>
-            </label>
-          </div>
+      <div class="form-field full" style="margin-bottom:22px;">
+        <label id="seminarLabel">Seminars</label>
+        <div class="choice-row" role="radiogroup" aria-labelledby="seminarLabel">
+          <label class="choice is-selected">
+            <input type="radio" name="seminarCount" value="1" checked>
+            <strong>1 seminar</strong>
+            <span>$1,750 seminar tuition</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="seminarCount" value="2">
+            <strong>2 seminars</strong>
+            <span>10% off seminar tuition</span>
+          </label>
         </div>
-        <label class="addon-toggle">
-          <input type="checkbox" id="includeResearch" name="includeResearch">
-          <span>
-            <strong>Add guided research / apprenticeship</strong>
-            <p>$3,300 for eight hours after the seminar, with the same professor. This line is never discounted by the two-seminar bundle.</p>
-          </span>
-        </label>
-        <div class="cart" id="cart" aria-live="polite"></div>
-        <div class="interest-note">
-          <strong>Interest only.</strong> Submitting this form does not enroll anyone, reserve a seat, or take a payment. Card, ACH, and invoice are preferences so we know how a family would like to pay if they later enroll.
-        </div>
+      </div>
+      <label class="addon-toggle">
+        <input type="checkbox" id="includeResearch" name="includeResearch">
+        <span>
+          <strong>Add guided research / apprenticeship</strong>
+          <p>$3,300 for eight hours after the seminar, with the same professor. This line is never discounted by the two-seminar bundle.</p>
+        </span>
+      </label>
+      <div class="cart" id="cart" aria-live="polite"></div>
+      <div class="interest-note">
+        <strong>No charge today.</strong> Submitting the application does not enroll anyone, reserve a seat, or take a payment. Card and ACH are preferences so we know how a family would like to pay if they later enroll.
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="section-mark" style="margin:36px 0 18px;"><span class="idx">03</span><span class="idx-total">/03</span><span class="rule"></span><span class="eyebrow">Payment preference</span></div>
+<section class="apply" id="application" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-mark"><span class="idx">03</span><span class="idx-total">/03</span><span class="rule"></span><span class="eyebrow">Application</span></div>
+    <h2 class="headline">Full student profile</h2>
+    <p class="body-lg">The same Spring 2027 application fields as before. It takes about five minutes. Fields marked <span class="req">*</span> are required. A parent or the student can complete it.</p>
+    <div class="paper-card application-panel" style="margin-top:36px;">
+      <div class="error-msg" id="errorMsg" role="alert">
+        <h3>Something went wrong</h3>
+        <p>We could not submit your application just now. Please try again, or email <a href="mailto:admissions@velluminstitute.org">admissions@velluminstitute.org</a>.</p>
+      </div>
+      <div id="applicationFields">
+        <fieldset class="intake-fieldset">
+          <legend>Contact information</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="parentFirst">Parent / guardian first name <span class="req">*</span></label>
+              <input type="text" id="parentFirst" name="parentFirst" required autocomplete="given-name">
+            </div>
+            <div class="form-field">
+              <label for="parentLast">Parent / guardian last name <span class="req">*</span></label>
+              <input type="text" id="parentLast" name="parentLast" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="studentName">Student name <span class="req">*</span></label>
+              <input type="text" id="studentName" name="studentName" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="phone">Phone <span class="opt-tag">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label for="cohort">Cohort <span class="req">*</span></label>
+              <select id="cohort" name="cohort" required>
+                <option value="Spring 2027" selected>Spring 2027</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="intake-fieldset">
+          <legend>Academic background</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="grade">Student's current grade <span class="req">*</span></label>
+              <select id="grade" required>
+                <option value="">Select one</option>
+                <option>9th grade</option>
+                <option>10th grade</option>
+                <option>11th grade</option>
+                <option>12th grade</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="school">Current school <span class="req">*</span></label>
+              <input type="text" id="school" required placeholder="School name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="location">City &amp; state or country <span class="opt-tag">(optional)</span></label>
+              <input type="text" id="location" placeholder="e.g. Austin, TX">
+            </div>
+            <div class="form-field">
+              <label for="gpa">Approximate unweighted GPA <span class="opt-tag">(optional)</span></label>
+              <select id="gpa">
+                <option value="">Prefer not to say</option>
+                <option>4.0</option>
+                <option>3.75 – 3.99</option>
+                <option>3.5 – 3.74</option>
+                <option>3.0 – 3.49</option>
+                <option>Below 3.0</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="testing">Standardized testing status <span class="opt-tag">(optional)</span></label>
+              <select id="testing">
+                <option value="">Select one</option>
+                <option>Not yet taken</option>
+                <option>PSAT taken only</option>
+                <option>SAT taken</option>
+                <option>ACT taken</option>
+                <option>Both SAT and ACT taken</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="testScore">Score, if applicable <span class="opt-tag">(optional)</span></label>
+              <input type="text" id="testScore" placeholder="e.g. SAT 1480">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field full">
+              <label for="interests">Academic interests or intended field of study <span class="opt-tag">(optional)</span></label>
+              <input type="text" id="interests" placeholder="e.g. economics, computer science, political theory">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="intake-fieldset">
+          <legend>Colleges and programs of interest</legend>
+          <p class="fieldset-note">List at least three schools or programs your student is currently considering. This helps us understand the level they are aiming for and tailor feedback accordingly.</p>
+          <div class="school-rows">
+            <div class="school-row"><span class="idx">1.</span><input type="text" id="school1" required></div>
+            <div class="school-row"><span class="idx">2.</span><input type="text" id="school2" required></div>
+            <div class="school-row"><span class="idx">3.</span><input type="text" id="school3" required></div>
+            <div class="school-row"><span class="idx">4.</span><input type="text" id="school4" placeholder="Optional"></div>
+            <div class="school-row"><span class="idx">5.</span><input type="text" id="school5" placeholder="Optional"></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="intake-fieldset">
+          <legend>Course preferences</legend>
+          <p class="fieldset-note">Rank up to three courses in order of preference. If your first choice does not have room, we place your student in the next course on the list that does.</p>
+          <div class="pref-ranks">
+            <div class="pref-rank">
+              <span>1st choice</span>
+              <select id="course1" required></select>
+            </div>
+            <div class="pref-rank">
+              <span>2nd choice</span>
+              <select id="course2" disabled></select>
+            </div>
+            <div class="pref-rank">
+              <span>3rd choice</span>
+              <select id="course3" disabled></select>
+            </div>
+          </div>
+          <div class="second-course-block" id="secondCourseBlock" hidden>
+            <p class="fieldset-note">You selected two seminars above. A student can take two courses in the same cohort when they meet on different schedules. Rank preferences for the second course; we confirm the schedule works before admitting into both.</p>
+            <div class="pref-ranks">
+              <div class="pref-rank">
+                <span>1st choice, second course</span>
+                <select id="secondCourse1"></select>
+              </div>
+              <div class="pref-rank">
+                <span>2nd choice, second course</span>
+                <select id="secondCourse2" disabled></select>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="intake-fieldset">
+          <legend>Supplementary academic work</legend>
+          <p class="fieldset-note">Select anything your student currently does or has done outside of school. Optional, but useful context for your instructor.</p>
+          <div class="check-grid">
+            <label class="check-item"><input type="checkbox" name="supp" value="AoPS"> Art of Problem Solving (AoPS)</label>
+            <label class="check-item"><input type="checkbox" name="supp" value="RSM"> Russian School of Mathematics (RSM)</label>
+            <label class="check-item"><input type="checkbox" name="supp" value="Kumon"> Kumon</label>
+            <label class="check-item"><input type="checkbox" name="supp" value="Math competitions"> Math competitions (AMC, AIME, USAMO)</label>
+            <label class="check-item"><input type="checkbox" name="supp" value="Science Olympiad"> Science Olympiad</label>
+            <label class="check-item"><input type="checkbox" name="supp" value="Debate or Model UN"> Debate or Model UN</label>
+            <label class="check-item"><input type="checkbox" name="supp" value="Research or internship"> Independent research or internship</label>
+            <label class="check-item"><input type="checkbox" name="supp" value="Online courses"> Online courses (edX, Coursera, etc.)</label>
+          </div>
+          <div class="form-row" style="margin-top:14px;">
+            <div class="form-field full">
+              <label for="suppOther">Other supplementary work <span class="opt-tag">(optional)</span></label>
+              <input type="text" id="suppOther" placeholder="Anything not listed above">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="intake-fieldset">
+          <legend>A bit more</legend>
+          <div class="form-row">
+            <div class="form-field full">
+              <label for="heard">How did you hear about Vellum Institute? <span class="opt-tag">(optional)</span></label>
+              <select id="heard">
+                <option value="">Select one</option>
+                <option>Friend or family referral</option>
+                <option>School counselor</option>
+                <option>Social media</option>
+                <option>Web search</option>
+                <option>Vellum newsletter or email</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="section-mark" style="margin:12px 0 18px;"><span class="rule"></span><span class="eyebrow">Payment preference</span></div>
         <div class="pay-grid" role="radiogroup" aria-label="Preferred payment method">
           <label class="pay-option">
             <input type="radio" name="paymentMethod" value="card" required>
@@ -180,59 +396,24 @@
               <span>Placeholder only. Bank details would be shared later if you enroll. Nothing is debited from this page.</span>
             </span>
           </label>
-          <label class="pay-option">
-            <input type="radio" name="paymentMethod" value="invoice">
-            <span>
-              <strong>Invoice</strong>
-              <span>Placeholder only. We would send an invoice if you enroll. This is not a bill.</span>
-            </span>
-          </label>
         </div>
 
-        <div class="form-row" style="margin-top:32px;">
-          <div class="form-field">
-            <label for="parentName">Parent / guardian name</label>
-            <input type="text" id="parentName" name="parentName" required autocomplete="name">
-          </div>
-          <div class="form-field">
-            <label for="studentName">Student name</label>
-            <input type="text" id="studentName" name="studentName" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email">
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone <span style="text-transform:none; letter-spacing:0; color:var(--text-soft);">(optional)</span></label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field full">
-            <label for="notes">Anything we should know</label>
-            <textarea id="notes" name="notes" placeholder="Course interests, timing, or questions. Optional."></textarea>
-          </div>
-        </div>
         <div class="hp-field" aria-hidden="true">
           <label for="website">Website</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
-        <button type="submit" class="btn-primary">Submit interest</button>
-        <p class="form-note">By submitting, you agree to be contacted about this interest. No payment is taken today.</p>
-      </form>
-      <div class="success-msg" id="successMsg">
-        <h3>Thank you, we have your interest</h3>
-        <p>This was not a charge and not an enrollment. A member of our team will follow up about seats and next steps.</p>
+        <button type="submit" class="btn-primary">Submit application</button>
+        <p class="form-note">This information is used to match your student with the right seminar and instructor and stays confidential within Vellum Institute. By submitting, you agree to be contacted about this application. No payment is taken today.</p>
       </div>
-      <div class="error-msg" id="errorMsg">
-        <h3>Something went wrong</h3>
-        <p>We could not record that just now. Please try again, or email <a href="mailto:valerie.angstrom@velluminstitute.org">valerie.angstrom@velluminstitute.org</a>.</p>
+      <div class="success-msg" id="successMsg">
+        <h3>Thank you, we have your application</h3>
+        <p>This was not a charge and not an enrollment. Please keep this application ID for your records. A member of our team will follow up about seats and next steps.</p>
+        <p class="app-id-line">Application ID: <strong id="applicationIdDisplay"></strong></p>
       </div>
     </div>
   </div>
 </section>
+</form>
 
 <footer>
   <div class="wrap footer-top">
@@ -281,21 +462,68 @@
 <script src="/js/site-nav.js"></script>
 <script type="module">
   import { computeOfferTotals, formatUsd } from '/js/offer-pricing.js';
+  import {
+    APPLICATION_ENDPOINT,
+    APPLICATION_TEXT_IDS,
+    APPLICATION_REQUIRED_IDS,
+    fillCourseSelect,
+    buildApplicationPayload,
+    buildOfferLeadPayload,
+    endpointIsConfigured,
+  } from '/js/offer-application.js';
 
   const form = document.getElementById('offerForm');
   const cart = document.getElementById('cart');
   const successMsg = document.getElementById('successMsg');
   const errorMsg = document.getElementById('errorMsg');
+  const applicationFields = document.getElementById('applicationFields');
+  const applicationIdDisplay = document.getElementById('applicationIdDisplay');
   const submitBtn = form.querySelector('button[type="submit"]');
   const submitLabel = submitBtn.textContent;
+  const course1 = document.getElementById('course1');
+  const course2 = document.getElementById('course2');
+  const course3 = document.getElementById('course3');
+  const secondCourseBlock = document.getElementById('secondCourseBlock');
+  const secondCourse1 = document.getElementById('secondCourse1');
+  const secondCourse2 = document.getElementById('secondCourse2');
+
+  [course1, course2, course3, secondCourse1, secondCourse2].forEach(fillCourseSelect);
+
+  course1.addEventListener('change', () => {
+    course2.disabled = !course1.value;
+    if (!course1.value) {
+      course2.value = '';
+      course3.value = '';
+      course3.disabled = true;
+    }
+  });
+  course2.addEventListener('change', () => {
+    course3.disabled = !course2.value;
+    if (!course2.value) course3.value = '';
+  });
+  secondCourse1.addEventListener('change', () => {
+    secondCourse2.disabled = !secondCourse1.value;
+    if (!secondCourse1.value) secondCourse2.value = '';
+  });
 
   function selectedCount() {
     const checked = form.querySelector('input[name="seminarCount"]:checked');
     return checked ? Number(checked.value) : 1;
   }
 
+  function syncSecondCourse(twoSeminars) {
+    secondCourseBlock.hidden = !twoSeminars;
+    secondCourse1.required = twoSeminars;
+    if (!twoSeminars) {
+      secondCourse1.value = '';
+      secondCourse2.value = '';
+      secondCourse2.disabled = true;
+    }
+  }
+
   function renderCart() {
     const totals = computeOfferTotals(selectedCount(), form.includeResearch.checked);
+    syncSecondCourse(totals.seminarCount === 2);
     const seminarLabel = totals.seminarCount === 2
       ? `Seminar tuition (2 × ${formatUsd(totals.seminarUnitPrice)})`
       : `Seminar tuition (1 × ${formatUsd(totals.seminarUnitPrice)})`;
@@ -309,7 +537,7 @@
       <div class="cart-row"><span>${seminarLabel}</span><span>${formatUsd(totals.seminarSubtotal)}</span></div>
       ${discountRow}
       ${researchRow}
-      <div class="cart-row total"><span>Interest total</span><span>${formatUsd(totals.grandTotal)}</span></div>
+      <div class="cart-row total"><span>Package total</span><span>${formatUsd(totals.grandTotal)}</span></div>
     `;
     form.querySelectorAll('.choice').forEach((label) => {
       const input = label.querySelector('input');
@@ -321,9 +549,23 @@
   form.addEventListener('change', renderCart);
   renderCart();
 
+  function readFields() {
+    const fields = {};
+    APPLICATION_TEXT_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      fields[id] = el ? el.value.trim() : '';
+    });
+    return fields;
+  }
+
+  function showError() {
+    errorMsg.style.display = 'block';
+    errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    if (errorMsg) errorMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
     const totals = renderCart();
     const payment = form.querySelector('input[name="paymentMethod"]:checked');
     if (!payment) {
@@ -331,32 +573,71 @@
       if (first && first.reportValidity) first.reportValidity();
       return;
     }
+
+    let firstInvalid = null;
+    for (const id of APPLICATION_REQUIRED_IDS) {
+      const el = document.getElementById(id);
+      if (el && !el.value.trim()) { firstInvalid = el; break; }
+    }
+    if (totals.seminarCount === 2 && secondCourse1 && !secondCourse1.value.trim() && !firstInvalid) {
+      firstInvalid = secondCourse1;
+    }
+    if (firstInvalid) {
+      if (firstInvalid.reportValidity) firstInvalid.reportValidity();
+      else firstInvalid.focus();
+      return;
+    }
+
+    const hp = form.website.value;
+    if (hp) {
+      applicationFields.style.display = 'none';
+      successMsg.style.display = 'block';
+      applicationIdDisplay.textContent = '—';
+      return;
+    }
+
+    if (!endpointIsConfigured(APPLICATION_ENDPOINT)) {
+      showError();
+      return;
+    }
+
+    const fields = readFields();
+    const payload = buildApplicationPayload({
+      fields,
+      supplementary: Array.from(form.querySelectorAll('input[name="supp"]:checked'), (box) => box.value).join('; '),
+      secondCourseThisCohort: totals.seminarCount === 2,
+      totals,
+      paymentMethod: payment.value,
+      hp,
+    });
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     try {
-      const resp = await fetch('/api/offer-lead', {
+      const resp = await fetch(APPLICATION_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          parentName: form.parentName.value.trim(),
-          studentName: form.studentName.value.trim(),
-          email: form.email.value.trim(),
-          phone: form.phone.value.trim(),
-          notes: form.notes.value.trim(),
-          seminarCount: totals.seminarCount,
-          includeResearch: totals.includeResearch,
-          paymentMethod: payment.value,
-          website: form.website.value,
-        }),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
       });
       const data = await resp.json().catch(() => ({}));
-      if (!resp.ok || !data.ok) throw new Error('lead failed');
-      form.style.display = 'none';
+      if (!data || !data.ok || !data.application_id) throw new Error('application failed');
+      applicationIdDisplay.textContent = data.application_id;
+      applicationFields.style.display = 'none';
       successMsg.style.display = 'block';
+      fetch('/api/offer-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(buildOfferLeadPayload({
+          fields,
+          totals,
+          paymentMethod: payment.value,
+          hp,
+        })),
+      }).catch(() => {});
     } catch {
       submitBtn.disabled = false;
       submitBtn.textContent = submitLabel;
-      errorMsg.style.display = 'block';
+      showError();
     }
   });
 </script>
