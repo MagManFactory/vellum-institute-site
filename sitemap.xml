@@ -2,30 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://velluminstitute.org/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
     <loc>https://velluminstitute.org/about/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
-    <loc>https://velluminstitute.org/newsletter/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <loc>https://velluminstitute.org/courses/</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
-    <loc>https://velluminstitute.org/newsletter/issue-01/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <loc>https://velluminstitute.org/how-it-works/</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
-    <loc>https://velluminstitute.org/newsletter/issue-02/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <loc>https://velluminstitute.org/pricing/</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
-    <loc>https://velluminstitute.org/privacy/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <loc>https://velluminstitute.org/guided-research/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://velluminstitute.org/faq/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://velluminstitute.org/apply/</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
     <loc>https://velluminstitute.org/counselors/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://velluminstitute.org/newsletter/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://velluminstitute.org/newsletter/issue-01/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://velluminstitute.org/newsletter/issue-02/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://velluminstitute.org/privacy/</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
 </urlset>
