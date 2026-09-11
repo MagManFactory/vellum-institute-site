@@ -8,15 +8,23 @@ import {
   PAYMENT_METHODS,
   isAcceptedPaymentMethod,
   normalizeLeadNotes,
+  normalizeCountry,
 } from '../functions/api/offer-lead.js';
 import {
   APPLICATION_ENDPOINT,
+  APPLICATION_REQUIRED_IDS,
   APPLICATION_TEXT_IDS,
   COURSES,
   buildApplicationPayload,
   buildOfferLeadPayload,
   formatPricingNotes,
 } from '../js/offer-application.js';
+import {
+  COUNTRIES,
+  COUNTRY_PLACEHOLDER,
+  countryNameFromCode,
+  orderedCountriesForSelect,
+} from '../js/countries.js';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const offerHtml = readFileSync(join(root, '../offer/index.html'), 'utf8');
@@ -69,6 +77,7 @@ const payload = buildApplicationPayload({
     parentLast: 'Lovelace',
     studentName: 'Student Name',
     email: 'family@example.com',
+    country: 'GB',
     notes: 'should be ignored',
   },
   supplementary: 'AoPS',
@@ -86,7 +95,11 @@ assert.equal(payload.notes.includes('Anything we should know'), false);
 assert.equal(payload.paymentMethod, 'card');
 assert.equal(payload.grandTotal, 6450);
 assert.equal(payload.charged, false);
+assert.equal(payload.country, 'GB');
+assert.equal(payload.country_name, 'United Kingdom');
 assert.equal(APPLICATION_TEXT_IDS.includes('notes'), false);
+assert.equal(APPLICATION_TEXT_IDS.includes('country'), true);
+assert.equal(APPLICATION_REQUIRED_IDS.includes('country'), true);
 
 const lead = buildOfferLeadPayload({
   fields: payload,
@@ -96,11 +109,17 @@ const lead = buildOfferLeadPayload({
 });
 assert.equal(lead.parentName, 'Ada Lovelace');
 assert.equal(lead.paymentMethod, 'ach');
+assert.equal(lead.country, 'GB');
+assert.equal(lead.country_name, 'United Kingdom');
 assert.equal(Object.hasOwn(lead, 'notes'), false);
 
 assert.match(APPLICATION_ENDPOINT, /^https:\/\/script\.google\.com\/macros\/s\//);
 assert.match(offerHtml, /parentFirst/);
 assert.match(offerHtml, /course1/);
+assert.match(offerHtml, /<select id="country"/);
+assert.match(offerHtml, /Country <span class="req">\*<\/span>/);
+assert.match(offerHtml, /posted JSON includes country/);
+assert.equal(offerHtml.includes('<input type="text" id="country"'), false);
 assert.match(offerHtml, /value="card"/);
 assert.match(offerHtml, /value="ach"/);
 assert.equal(offerHtml.includes('value="invoice"'), false);
@@ -134,5 +153,22 @@ assert.match(homepageHtml, /statusLabel = c\.tag === 'confirmed' \? 'FACULTY CON
 assert.equal(homepageHtml.includes('Faculty match in progress'), false);
 assert.equal(homepageHtml.includes('Faculty confirmed'), false);
 assert.match(homepageHtml, /By inquiry/);
+assert.match(homepageHtml, /<select id="country"/);
+assert.match(homepageHtml, /payload\.country_name/);
+assert.match(homepageHtml, /posted JSON includes country/);
+assert.equal(homepageHtml.includes('<input type="text" id="country"'), false);
+assert.match(homepageHtml, /fillCountrySelect/);
+
+const countryCodes = COUNTRIES.map((row) => row.code);
+assert.equal(new Set(countryCodes).size, COUNTRIES.length);
+assert.ok(COUNTRIES.length >= 240);
+assert.equal(countryNameFromCode('US'), 'United States');
+assert.equal(countryNameFromCode('gb'), 'United Kingdom');
+assert.equal(orderedCountriesForSelect()[0].code, 'US');
+assert.equal(orderedCountriesForSelect()[0].name, 'United States');
+assert.equal(COUNTRY_PLACEHOLDER, 'Select country');
+assert.equal(normalizeCountry('us'), 'US');
+assert.equal(normalizeCountry('United States'), 'United States');
+assert.match(readFileSync(join(root, '../functions/api/offer-lead.js'), 'utf8'), /country_name/);
 
 console.log('offer pricing cases passed');

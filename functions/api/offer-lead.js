@@ -25,6 +25,12 @@ export function normalizeLeadNotes() {
   return '';
 }
 
+export function normalizeCountry(value) {
+  const raw = clean(value, MAX_FIELD);
+  if (/^[A-Za-z]{2}$/.test(raw)) return raw.toUpperCase();
+  return raw;
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
   if (!(await verifySession(request, env))) {
@@ -52,6 +58,8 @@ export async function onRequestPost(context) {
   const studentName = clean(body.studentName, MAX_FIELD);
   const email = clean(body.email, MAX_FIELD);
   const phone = clean(body.phone, 40);
+  const country = normalizeCountry(body.country);
+  const countryName = clean(body.country_name || body.countryName, MAX_FIELD);
   const notes = normalizeLeadNotes(body.notes);
   const paymentMethod = normalizePaymentMethod(body.paymentMethod);
   const seminarCount = Number(body.seminarCount) === 2 ? 2 : 1;
@@ -71,6 +79,8 @@ export async function onRequestPost(context) {
     studentName,
     email,
     phone,
+    country,
+    country_name: countryName,
     notes,
     paymentMethod,
     ...totals,
@@ -89,6 +99,8 @@ export async function onRequestPost(context) {
           student_name TEXT,
           email TEXT,
           phone TEXT,
+          country TEXT,
+          country_name TEXT,
           seminar_count INTEGER,
           include_research INTEGER,
           payment_method TEXT,
@@ -99,18 +111,30 @@ export async function onRequestPost(context) {
           notes TEXT
         )`
       ).run();
+      for (const sql of [
+        'ALTER TABLE offer_leads ADD COLUMN country TEXT',
+        'ALTER TABLE offer_leads ADD COLUMN country_name TEXT',
+      ]) {
+        try {
+          await env.DB.prepare(sql).run();
+        } catch {
+          // Column already exists on older D1 databases.
+        }
+      }
       await env.DB.prepare(
         `INSERT INTO offer_leads (
-          created_at, parent_name, student_name, email, phone,
+          created_at, parent_name, student_name, email, phone, country, country_name,
           seminar_count, include_research, payment_method,
           seminar_subtotal, seminar_discount, research_total, grand_total, notes
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       ).bind(
         record.createdAt,
         record.parentName,
         record.studentName,
         record.email,
         record.phone,
+        record.country,
+        record.country_name,
         record.seminarCount,
         record.includeResearch ? 1 : 0,
         record.paymentMethod,

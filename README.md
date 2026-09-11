@@ -42,6 +42,8 @@ Production secret `PRICING_GATE_PASSWORD` is set via wrangler/dashboard; redeplo
      student_name TEXT,
      email TEXT,
      phone TEXT,
+     country TEXT,
+     country_name TEXT,
      seminar_count INTEGER,
      include_research INTEGER,
      payment_method TEXT,

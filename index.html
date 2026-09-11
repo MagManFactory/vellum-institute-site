@@ -748,9 +748,12 @@
             <label for="state">State / province</label>
             <input type="text" id="state">
           </div>
+          <!-- Inquiries Sheet: posted JSON includes country (ISO 3166-1 alpha-2) and country_name. Add those columns if the header row is a fixed list. -->
           <div class="form-field">
             <label for="country">Country</label>
-            <input type="text" id="country" required>
+            <select id="country" name="country" required autocomplete="country">
+              <option value="">Select country</option>
+            </select>
           </div>
         </div>
         <div class="form-row">
@@ -972,6 +975,7 @@
     const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxXPVsPb3IfHIEaNxlBszLt5cF-B7oGPmvVi3x4OOaKduz4dzTdY8PtlenpkDDvdwMv/exec';
     const FIELD_IDS = ['parentName','studentName','email','grade','schoolName','state','country','curriculum','courseInterest','notes'];
     const REQUIRED_IDS = ['parentName','studentName','email','grade','schoolName','country','curriculum','courseInterest','notes'];
+    // Posted JSON includes country (ISO-2) and country_name. Sheet may auto-append unknown fields.
     const submitBtn = form.querySelector('button[type="submit"]');
     const submitBtnLabel = submitBtn ? submitBtn.textContent : '';
 
@@ -1002,6 +1006,11 @@
         const el = document.getElementById(id);
         payload[id] = el ? el.value.trim() : '';
       });
+      const countryEl = document.getElementById('country');
+      if(countryEl && countryEl.selectedIndex >= 0){
+        const selected = countryEl.options[countryEl.selectedIndex];
+        payload.country_name = selected && countryEl.value ? selected.textContent.trim() : '';
+      }
       const hp = document.getElementById('website');
       if(hp) payload.hp = hp.value;
 
@@ -1044,6 +1053,10 @@
     setTimeout(() => revealEls.forEach(el => el.classList.add('in')), 600);
   });
   setTimeout(() => revealEls.forEach(el => el.classList.add('in')), 1500);
+</script>
+<script type="module">
+  import { fillCountrySelect } from '/js/countries.js';
+  fillCountrySelect(document.getElementById('country'));
 </script>
 
 <section id="newsletter" class="newsletter-section" style="padding:3rem 1.25rem;max-width:40rem;margin:0 auto;">
