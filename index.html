@@ -574,8 +574,8 @@
     </div>
     <div class="course-filters">
       <button class="filter-btn active" data-filter="all">All courses</button>
-      <button class="filter-btn" data-filter="open">Faculty confirmed</button>
-      <button class="filter-btn" data-filter="progress">Faculty match in progress</button>
+      <button class="filter-btn" data-filter="confirmed">FACULTY CONFIRMED</button>
+      <button class="filter-btn" data-filter="consideration">FACULTY UNDER CONSIDERATION</button>
     </div>
     <div class="course-index" id="courseGrid"></div>
   </div>
@@ -846,22 +846,21 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ---- Course data (drives the catalog) ----
   const COURSES = [
-    {title:"AI and Society", tag:"open", q:"How artificial intelligence is reshaping work, education, creativity, politics, relationships, and decision-making, ending in an independent project on a major AI-driven question."},
-    {title:"Behavioral Economics", tag:"progress", q:"Why smart people make irrational decisions: predictable mistakes, failed incentives, framing, social influence, loss aversion, and bias, explored through a student-designed behavioral experiment or project."},
-    {title:"Social Entrepreneurship", tag:"open", q:"Can business solve social problems? Students study real ventures, successful and failed, and develop their own proposal for a sustainable social enterprise."},
-    {title:"Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime", tag:"progress", q:"How anime, manga, gaming, music, fashion, and technology made Japan a global cultural force, and how media shapes how nations are perceived."},
-    {title:"Media Psychology", tag:"progress", q:"Who are you online? How digital environments shape identity, attention, persuasion, and self-presentation, and what AI adds to questions of authenticity."},
-    {title:"Geopolitics in the Age of AI", tag:"progress", q:"How emerging technology is reshaping global power: US-China competition, semiconductors, cybersecurity, information warfare, supply chains, and technological sovereignty."},
-    {title:"Biotech Frontiers", tag:"progress", q:"How far should we redesign life? Gene editing, synthetic biology, personalized medicine, longevity, and bioengineering, and the ethical and economic questions they raise."},
-    {title:"Environmental Sustainability in Business", tag:"open", q:"How should firms account for environmental harm across operations and supply chains—and turn sustainability gaps into organizational value? Cases and readings cover climate impact, toxics, resource depletion, and product disposal."},
+    {title:"AI and Society", tag:"confirmed", q:"How artificial intelligence is reshaping work, education, creativity, politics, relationships, and decision-making, ending in an independent project on a major AI-driven question."},
+    {title:"Social Entrepreneurship", tag:"confirmed", q:"Can business solve social problems? Students study real ventures, successful and failed, and develop their own proposal for a sustainable social enterprise."},
+    {title:"Media Psychology", tag:"confirmed", q:"Who are you online? How digital environments shape identity, attention, persuasion, and self-presentation, and what AI adds to questions of authenticity."},
+    {title:"Geopolitics in the Age of AI", tag:"confirmed", q:"How emerging technology is reshaping global power: US-China competition, semiconductors, cybersecurity, information warfare, supply chains, and technological sovereignty."},
+    {title:"Environmental Sustainability in Business", tag:"confirmed", q:"How should firms account for environmental harm across operations and supply chains—and turn sustainability gaps into organizational value? Cases and readings cover climate impact, toxics, resource depletion, and product disposal."},
+    {title:"Behavioral Economics", tag:"consideration", q:"Why smart people make irrational decisions: predictable mistakes, failed incentives, framing, social influence, loss aversion, and bias, explored through a student-designed behavioral experiment or project."},
+    {title:"Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime", tag:"consideration", q:"How anime, manga, gaming, music, fashion, and technology made Japan a global cultural force, and how media shapes how nations are perceived."},
   ];
 
   const grid = document.getElementById('courseGrid');
   function renderCourses(filter){
     grid.innerHTML = '';
     COURSES.filter(c => filter === 'all' || c.tag === filter).forEach((c, i) => {
-      const statusLabel = c.tag === 'open' ? 'Faculty confirmed' : 'Faculty match in progress';
-      const statusClass = c.tag === 'open' ? 'status-open' : 'status-progress';
+      const statusLabel = c.tag === 'confirmed' ? 'FACULTY CONFIRMED' : 'FACULTY UNDER CONSIDERATION';
+      const statusClass = c.tag === 'confirmed' ? 'status-open' : 'status-progress';
       const row = document.createElement('div');
       row.className = 'course-row';
       row.innerHTML = `
@@ -893,7 +892,7 @@
     {q:"What happens if a course does not fill?", a:"Every course needs a minimum of eight students to run. If your top-ranked course does not fill, we place you in the next course on your list that does, or let you know as soon as we can so you can decide how to proceed."},
     {q:"Is there a cost to apply?", a:"No. There is no cost or deposit to express interest or to complete a full application. We share full pricing directly with each family once a student is matched to a confirmed cohort, before anything is finalized."},
     {q:"Can a student take two courses in the same cohort?", a:"Yes, when the two courses meet on different schedules. We cap it at two courses per student per cohort. Indicate interest on the application, rank preferences for the second course, and we confirm the schedule works before admitting into both."},
-    {q:"Who teaches the courses?", a:"University professors with real subject-matter depth, not teaching assistants or graduate students. We list a course's faculty status plainly. A course marked faculty confirmed has a professor in place; a course marked faculty match in progress does not yet, and we will not run it until it does."},
+    {q:"Who teaches the courses?", a:"University professors with real subject-matter depth, not teaching assistants or graduate students. We list a course's faculty status plainly. A course marked FACULTY CONFIRMED has a professor in place; a course marked FACULTY UNDER CONSIDERATION does not yet, and we will not run it until it does."},
     {q:"When do cohorts run?", a:"Our inaugural cohort runs in spring 2027, February through April. We plan to add summer and fall cohorts after that, depending on demand."},
     {q:"What is the research mentorship, and can anyone apply for it?", a:"It is optional, eight-hour, one-on-one guided research or apprenticeship with the same professor a student already worked with in a course. It is only available to students who have completed a Vellum course, we do not open it to outside applicants."},
     {q:"How is this different from a research-mentorship company?", a:"Most paid research programs match a student to a mentor they have never met. Ours follows a live seminar the student already completed with the professor, so the relationship is real before any guided research or apprenticeship begins. There are no gimmicks, no publishing in an affiliated journal, no manufactured credential. We focus on real project outcomes a student can speak to with substance and highlight in their college applications."},
