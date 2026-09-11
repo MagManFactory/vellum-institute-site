@@ -235,6 +235,15 @@
               </select>
             </div>
           </div>
+          <div class="form-row">
+            <!-- Full-application workbook: posted JSON includes country (ISO 3166-1 alpha-2) and country_name. Add those columns if the header row is a fixed list. -->
+            <div class="form-field full">
+              <label for="country">Country <span class="req">*</span></label>
+              <select id="country" name="country" required autocomplete="country">
+                <option value="">Select country</option>
+              </select>
+            </div>
+          </div>
         </fieldset>
 
         <fieldset class="intake-fieldset">
@@ -257,7 +266,7 @@
           </div>
           <div class="form-row">
             <div class="form-field">
-              <label for="location">City &amp; state or country <span class="opt-tag">(optional)</span></label>
+              <label for="location">City &amp; state <span class="opt-tag">(optional)</span></label>
               <input type="text" id="location" placeholder="e.g. Austin, TX">
             </div>
             <div class="form-field">
@@ -471,6 +480,7 @@
     buildOfferLeadPayload,
     endpointIsConfigured,
   } from '/js/offer-application.js';
+  import { fillCountrySelect } from '/js/countries.js';
 
   const form = document.getElementById('offerForm');
   const cart = document.getElementById('cart');
@@ -488,6 +498,7 @@
   const secondCourse2 = document.getElementById('secondCourse2');
 
   [course1, course2, course3, secondCourse1, secondCourse2].forEach(fillCourseSelect);
+  fillCountrySelect(document.getElementById('country'));
 
   course1.addEventListener('change', () => {
     course2.disabled = !course1.value;

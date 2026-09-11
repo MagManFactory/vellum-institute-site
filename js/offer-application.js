@@ -1,4 +1,5 @@
 import { formatUsd } from './offer-pricing.js';
+import { countryFieldsFromValue } from './countries.js';
 
 export const APPLICATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwmiM-ikPVH0yS9jCdO5VZDp0Q-W7xHhq7rTE24Dj6oDutkRSEGrgiT1ANigtGx_mFiJg/exec';
 
@@ -14,7 +15,7 @@ export const COURSES = [
 
 export const APPLICATION_TEXT_IDS = [
   'parentFirst', 'parentLast', 'studentName', 'email', 'phone', 'cohort',
-  'grade', 'school', 'location', 'gpa', 'testing', 'testScore', 'interests',
+  'country', 'grade', 'school', 'location', 'gpa', 'testing', 'testScore', 'interests',
   'school1', 'school2', 'school3', 'school4', 'school5',
   'course1', 'course2', 'course3',
   'secondCourse1', 'secondCourse2',
@@ -22,7 +23,7 @@ export const APPLICATION_TEXT_IDS = [
 ];
 
 export const APPLICATION_REQUIRED_IDS = [
-  'parentFirst', 'parentLast', 'studentName', 'email', 'grade', 'cohort',
+  'parentFirst', 'parentLast', 'studentName', 'email', 'country', 'grade', 'cohort',
   'course1', 'school1', 'school2', 'school3',
 ];
 
@@ -68,6 +69,7 @@ export function buildApplicationPayload({
   APPLICATION_TEXT_IDS.forEach((id) => {
     payload[id] = fields && fields[id] ? String(fields[id]).trim() : '';
   });
+  Object.assign(payload, countryFieldsFromValue(payload.country, fields && fields.country_name));
   payload.notes = formatPricingNotes(totals, paymentMethod);
   payload.secondCourseThisCohort = !!secondCourseThisCohort;
   payload.supplementary = supplementary || '';
@@ -90,11 +92,16 @@ export function endpointIsConfigured(url) {
 }
 
 export function buildOfferLeadPayload({ fields, totals, paymentMethod, hp }) {
+  const countryFields = countryFieldsFromValue(
+    fields && fields.country,
+    fields && fields.country_name,
+  );
   return {
     parentName: `${(fields.parentFirst || '').trim()} ${(fields.parentLast || '').trim()}`.trim(),
     studentName: (fields.studentName || '').trim(),
     email: (fields.email || '').trim(),
     phone: (fields.phone || '').trim(),
+    ...countryFields,
     seminarCount: totals.seminarCount,
     includeResearch: !!totals.includeResearch,
     paymentMethod: String(paymentMethod || '').toLowerCase(),
