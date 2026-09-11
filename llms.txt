@@ -1,0 +1,31 @@
+# Vellum Institute
+
+Vellum Institute is a small, application-based online institute. High school students take live seminars with university faculty and experienced industry professionals affiliated with premier universities, then may continue with optional one-on-one guided research or apprenticeship.
+
+Seminars are eight weekly, ninety-minute live sessions, capped at fifteen students, and end in a substantive original project. Students apply; they are not simply enrolled. Public seminar tuition is by inquiry and is shared directly once a student is matched to a cohort.
+
+Inaugural cohort: Spring 2027 (February–April). Later summer and fall cohorts are planned.
+
+Website: https://velluminstitute.org/
+
+## Core pages
+
+- Home: https://velluminstitute.org/
+- About: https://velluminstitute.org/about/
+- Courses: https://velluminstitute.org/courses/
+- How it works: https://velluminstitute.org/how-it-works/
+- Pricing: https://velluminstitute.org/pricing/
+- Guided research: https://velluminstitute.org/guided-research/
+- FAQ: https://velluminstitute.org/faq/
+- Apply: https://velluminstitute.org/apply/
+- Counselors: https://velluminstitute.org/counselors/
+- Newsletter (The Vellum Brief): https://velluminstitute.org/newsletter/
+- Privacy: https://velluminstitute.org/privacy/
+
+## For counselors
+
+College counselors and advisors can complete a short gated survey and receive The Hidden Rules of College handbook: https://velluminstitute.org/counselors/
+
+## Contact
+
+valerie.angstrom@velluminstitute.org

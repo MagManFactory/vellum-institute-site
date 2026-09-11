@@ -144,17 +144,18 @@ assert.equal(COURSES.includes('Biotech Frontiers'), false);
 assert.equal(homepageHtml.includes('Biotech Frontiers'), false);
 assert.equal(offerHtml.includes('Biotech Frontiers'), false);
 
-const homepageTitles = [...homepageHtml.matchAll(/\{title:"([^"]+)", tag:"(confirmed|consideration)"/g)]
+const homepageTitles = [...homepageHtml.matchAll(/<div class="course-row-top"><h3>([^<]+)<\/h3>/g)]
   .map((match) => match[1]);
 assert.deepEqual(homepageTitles, expectedTitles);
 assert.match(homepageHtml, /data-filter="confirmed">FACULTY CONFIRMED/);
 assert.match(homepageHtml, /data-filter="consideration">FACULTY UNDER CONSIDERATION/);
-assert.match(homepageHtml, /statusLabel = c\.tag === 'confirmed' \? 'FACULTY CONFIRMED' : 'FACULTY UNDER CONSIDERATION'/);
+assert.match(homepageHtml, /<span class="course-status status-open">FACULTY CONFIRMED<\/span>/);
+assert.match(homepageHtml, /<span class="course-status status-progress">FACULTY UNDER CONSIDERATION<\/span>/);
 assert.equal(homepageHtml.includes('Faculty match in progress'), false);
 assert.equal(homepageHtml.includes('Faculty confirmed'), false);
 assert.match(homepageHtml, /By inquiry/);
 assert.match(homepageHtml, /<select id="country"/);
-assert.match(homepageHtml, /payload\.country_name/);
+assert.match(readFileSync(join(root, '../js/apply-form.js'), 'utf8'), /payload\.country_name/);
 assert.match(homepageHtml, /posted JSON includes country/);
 assert.equal(homepageHtml.includes('<input type="text" id="country"'), false);
 assert.match(homepageHtml, /fillCountrySelect/);

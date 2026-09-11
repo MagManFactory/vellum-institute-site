@@ -4,6 +4,9 @@
 /robots.txt
   Content-Type: text/plain; charset=utf-8
 
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+
 /offer/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
