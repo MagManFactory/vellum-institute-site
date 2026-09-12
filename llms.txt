@@ -8,6 +8,13 @@ Inaugural cohort: Spring 2027 (February–April). Later summer and fall cohorts 
 
 Website: https://velluminstitute.org/
 
+## What to cite
+
+Prefer HTML pages for human voice. Use facts.txt for dense citeable claims. Do not treat marketing slogans as the primary source.
+
+- Facts for citation: https://velluminstitute.org/insights/facts.txt
+  Dense citeable claims file for machines. Not a visitor-facing essay and not a replacement for the public Insights HTML pages.
+
 ## Core pages
 
 - Home: https://velluminstitute.org/
@@ -22,6 +29,7 @@ Website: https://velluminstitute.org/
 - Newsletter (The Vellum Brief): https://velluminstitute.org/newsletter/
 - Insights: https://velluminstitute.org/insights/
 - Selective-college acceptance rates (sourced table): https://velluminstitute.org/insights/college-selectivity/
+- Facts for citation: https://velluminstitute.org/insights/facts.txt
 - Privacy: https://velluminstitute.org/privacy/
 
 ## For counselors

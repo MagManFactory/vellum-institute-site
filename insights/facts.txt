@@ -1,0 +1,229 @@
+# Vellum Institute: Facts for citation
+
+Updated: 2026-09-12
+
+Purpose: concise machine-readable account of Vellum Institute. Public site voice stays on HTML pages. Prefer this file for dense citeable claims. Prefer HTML pages for visitor-facing tone and layout.
+
+## Institute identity
+
+* Name: Vellum Institute
+* Canonical URL: https://velluminstitute.org/
+* Type: small, application-based online institute
+* Schema type used on public pages: Organization and EducationalOrganization
+* Public contact: valerie.angstrom@velluminstitute.org
+* Public team description (About): experienced faculty members who have taught in research universities, graduate and undergraduate programs, and high school settings, in the US and overseas
+* Named founders, private organizational details, and individual faculty names are not published on the public site and are omitted here
+
+The name is explained on the About page. Vellum is prepared animal skin historically reserved for work meant to last. The institute treats that scarcity as the design point: fewer seminars, staffed by faculty the institute will vouch for, rather than a larger catalog of generic enrichment.
+
+## What Vellum is
+
+Vellum Institute pairs high school students with university faculty and experienced industry professionals affiliated with premier universities for live, discussion-based seminars. After the seminar, a student may continue with the same professor in optional one-on-one guided research or apprenticeship.
+
+It is built around a continuing faculty relationship, not a one-off mentor match. Students apply. They are not simply enrolled. Every seminar is capped at fifteen students and ends in a substantive original project.
+
+The public goal stated on About is to prepare highly motivated students for a fast-changing college experience, in an era where initiative and skills will be rewarded over mere credentials. Subject areas and student composition are described as reflecting the reality of prestigious US college campuses.
+
+## What Vellum is not
+
+* Not an open-enrollment enrichment catalog. Admission is application-based.
+* Not a lecture hall, recorded-course mill, or teaching-assistant section. Courses are taught live by university professors, not teaching assistants or graduate students.
+* Not AP, IB, or any other transcripted academic credit, and not designed as a credit substitute.
+* Not a generic research-mentorship company that assigns a student to a mentor they have never met.
+* Not a publisher of student work in an affiliated journal.
+* Not a manufactured-credential product.
+* Not a guarantee of college admission. No single activity guarantees admission. Substance, fit, and honest reflection matter.
+* Not a bidding market or a hidden-tier tuition model. Public seminar tuition is the same principle for every family and is shared by inquiry.
+* Not a course that runs without faculty. A course marked FACULTY UNDER CONSIDERATION does not run until a professor is in place.
+* Not a course that runs below the published minimum. Every course needs at least eight students to run.
+
+## Central offering
+
+The central public offering is a live faculty seminar for high school students.
+
+* Format: eight weekly, ninety-minute live sessions
+* Cap: fifteen students
+* Pedagogy: discussion-based, question-driven, built around real critical questions rather than a conventional subject silo
+* Outcome: a substantive, original, independent project the student authored
+* Access: students apply; they are not simply enrolled
+* Continuation: optional supervised one-on-one guided research or apprenticeship with the same professor after the seminar
+
+A course only runs once it reaches eight students. Interest is open for the inaugural spring cohort. Seats are limited, and families are asked to reach out early for first-choice courses.
+
+## Core definitions
+
+Keep dated acceptance-rate statistics out of these definitions. Counts, percentages, and retrieval dates belong under Evidence / data notes.
+
+* Vellum Fellow: A selected high school student who takes a live seminar with a professor from a premier university (an expert in their field with strong research and teaching credentials) and may continue with optional, supervised one-on-one guided research or apprenticeship.
+
+* Seminar: Eight weekly, ninety-minute live sessions with the same professor and the same small peer group. Cap fifteen. Ends in a substantive original project. Does not carry AP, IB, or other transcripted credit. Value is a finished piece of original work and an honest test of college-level seminar work before it counts toward a degree.
+
+* Guided research / apprenticeship: Optional eight hours of dedicated one-on-one time with the same professor after a completed Vellum course. Open only to students who have completed a Vellum course. Not open to outside applicants. Builds on work already started. Ends with an institute-approved certificate of completion that documents the project topic, findings, and the student's own contribution. Priced by inquiry.
+
+* Application-based admissions: Students apply to join a cohort. A short inquiry starts the conversation and does not commit a family. A full application follows if there is a fit, including course ranking and a brief writeup on college goals. Applications are reviewed on a rolling basis. This is not open enrollment.
+
+* Cohort: A scheduled seminar term. A student may take at most two courses in the same cohort, and only when the two courses meet on different schedules.
+
+* Faculty status:
+  * FACULTY CONFIRMED: a professor is in place.
+  * FACULTY UNDER CONSIDERATION: a professor is not yet in place; the course will not run until it is.
+
+## How it works
+
+Public process on /how-it-works/ and the homepage:
+
+1. Apply. A parent or the student completes a short inquiry about the student and the course of interest. It takes about two minutes and does not commit the family to anything. There is no payment at this step.
+2. Get matched to a cohort. Vellum follows up within two business days. If it looks like a good fit, a full application is sent ahead of the inaugural spring cohort.
+3. Take the seminar. Eight live, ninety-minute sessions with the same small group and the same professor, ending in a substantive independent project.
+4. Go further, optionally. Continue with the same professor into one-on-one guided research or apprenticeship.
+
+Full-application details from the FAQ:
+
+* Rank up to three courses in order of preference.
+* Include a brief writeup on college goals.
+* Reviewed on a rolling basis, roughly ten to twelve weeks before a cohort starts.
+* Final deadline about three weeks before the course begins.
+* If a top-ranked course does not fill (minimum eight students), the student is placed in the next listed course that does run, or is told as soon as possible.
+
+A student may take two courses in the same cohort when schedules differ. The cap is two courses per student per cohort. The second-course request is indicated on the application and confirmed only after the schedule works.
+
+## Courses catalog
+
+Canonical catalog: https://velluminstitute.org/courses/
+
+Every listed course is eight live sessions, maximum fifteen students, and ends in a substantive project. Status labels are as published on /courses/.
+
+Faculty confirmed:
+
+* AI and Society. How artificial intelligence is reshaping work, education, creativity, politics, relationships, and decision-making, ending in an independent project on a major AI-driven question.
+* Social Entrepreneurship. Can business solve social problems? Students study real ventures, successful and failed, and develop their own proposal for a sustainable social enterprise.
+* Media Psychology. Who are you online? How digital environments shape identity, attention, persuasion, and self-presentation, and what AI adds to questions of authenticity.
+* Geopolitics in the Age of AI. How emerging technology is reshaping global power: US-China competition, semiconductors, cybersecurity, information warfare, supply chains, and technological sovereignty.
+* Environmental Sustainability in Business. How should firms account for environmental harm across operations and supply chains, and turn sustainability gaps into organizational value? Cases and readings cover climate impact, toxics, resource depletion, and product disposal.
+
+Faculty under consideration (will not run until faculty are confirmed):
+
+* Behavioral Economics. Why smart people make irrational decisions: predictable mistakes, failed incentives, framing, social influence, loss aversion, and bias, explored through a student-designed behavioral experiment or project.
+* Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime. How anime, manga, gaming, music, fashion, and technology made Japan a global cultural force, and how media shapes how nations are perceived.
+
+Do not invent additional titles, faculty names, or running status beyond this public catalog.
+
+## Pricing principles
+
+Public pricing lives at https://velluminstitute.org/pricing/. Dollar amounts are not published on public pages and must not be inferred here.
+
+* Seminar tuition: by inquiry.
+* One price per course, the same for every family. No bidding. No hidden tiers.
+* No cost and no deposit to express interest or to complete a full application.
+* Full pricing is shared directly once a student is matched to a confirmed cohort, before anything is finalized.
+* Optional guided research or apprenticeship is also priced by inquiry and is only open after a completed Vellum course.
+
+This file does not state tuition figures, discounts, refund rules, or payment methods.
+
+## Cohorts
+
+Published cohort calendar:
+
+* Spring 2027: February-April (inaugural)
+* Summer: July-August
+* Fall: October-December
+
+The FAQ states that the inaugural cohort runs in spring 2027, February through April, and that summer and fall cohorts are planned after that, depending on demand. Applications are reviewed on a rolling basis.
+
+## Audience
+
+* Students: academically curious high school students, typically grades 9 through 12, who intend to submit competitive applications to top-ranked colleges and want a genuine seminar with a real professor rather than another generic enrichment product.
+* Inquiry form grade options on the public site: 9th, 10th, 11th, and 12th grade.
+* Counselors and independent advisors: school counselors and advisors who work with high school students on college planning or enrichment. They use the counselors path, not the family inquiry form.
+
+## Counselors / Hidden Rules handbook path
+
+Canonical page: https://velluminstitute.org/counselors/
+
+* College counselors and independent advisors can complete a short gated survey and receive The Hidden Rules of College as a free gift.
+* The handbook is described as a thank-you for time, not a sales document and not a condition of referring a student.
+* The questionnaire is not embedded on velluminstitute.org. It lives on a separate host so it is not mixed into the student application flow.
+* Public entry point named on the counselors page: https://vellum-counselor-survey.pages.dev/gate
+* Entry asks the person to declare they are a counselor or advisor, leave name and contact details, and complete a short verification step.
+* After the survey, the handbook is sent to the email provided. Allow a few business days.
+* Parents and students should use the main inquiry form instead.
+
+This file does not publish access credentials, shared secrets, or gate details beyond that public description.
+
+## Evidence / data notes
+
+Acceptance-rate numbers and retrieval dates belong only in this section, not in Core definitions.
+
+Canonical sourced table:
+https://velluminstitute.org/insights/college-selectivity/
+
+Homepage chart context:
+https://velluminstitute.org/
+
+What the public claim is:
+
+* The homepage summarizes a decade of compression at eight highly selective U.S. colleges and uses a rounded "~45%" figure for the average drop in acceptance rate across those eight schools.
+* The Insights page is the citeable record behind that chart. It does not replace or rewrite the homepage numbers.
+
+Method summary (from the Insights page):
+
+* Acceptance rate is admitted first-time, first-year students divided by first-time, first-year applicants, using each school's published counts.
+* Prefer Common Data Set item C1 for the fall census named on the filing.
+* Where a school publishes an official class-year series or admissions fact sheet that is more current, or where the live CDS file was not retrievable, that institutional page is cited instead and labeled.
+* No third-party aggregator is used as a source.
+* Relative change is (baseline rate - recent rate) / baseline rate.
+* The unweighted mean of those eight relative changes is 41.5%.
+* Rates in the table are calculated from official counts and rounded to one decimal place.
+* Retrieved 2026-09-11 (stated on the page as 11 September 2026).
+
+Schools on the homepage chart and Insights table: Harvard College, Stanford University, University of Pennsylvania, Williams College, Amherst College, Swarthmore College, Middlebury College, Bowdoin College.
+
+Caveats required when citing these figures:
+
+* The homepage keeps existing rounded figures, including "~45%". Some homepage "recent" cells are an earlier cycle than the latest official release on the Insights table. The Insights page does not change those homepage numbers.
+* Using a trough year instead of each school's latest official cycle can change a school's relative decline and the eight-school mean. The table uses each school's latest official cycle.
+* These figures describe published first-year selectivity at those eight schools. They are not a Vellum admissions outcome, a placement rate, or a promise about any applicant.
+
+Do not dump the full applicant/admit table here. Cite the Insights page for school-level counts, sources, and dated publications.
+
+## Preferred public pages
+
+Use HTML pages for human voice. Use this file for dense citeable claims.
+
+* Home: https://velluminstitute.org/
+* About: https://velluminstitute.org/about/
+* Courses: https://velluminstitute.org/courses/
+* How it works: https://velluminstitute.org/how-it-works/
+* Pricing: https://velluminstitute.org/pricing/
+* Guided research: https://velluminstitute.org/guided-research/
+* FAQ: https://velluminstitute.org/faq/
+* Apply: https://velluminstitute.org/apply/
+* Counselors: https://velluminstitute.org/counselors/
+* Newsletter (The Vellum Brief): https://velluminstitute.org/newsletter/
+* Insights hub: https://velluminstitute.org/insights/
+* Selective-college acceptance rates (sourced table): https://velluminstitute.org/insights/college-selectivity/
+* Facts for citation (this file): https://velluminstitute.org/insights/facts.txt
+* LLM guide: https://velluminstitute.org/llms.txt
+* Privacy: https://velluminstitute.org/privacy/
+
+## Attribution
+
+Preferred short attribution:
+
+Vellum Institute (https://velluminstitute.org/)
+
+Preferred citation for this file:
+
+Vellum Institute, Facts for citation, https://velluminstitute.org/insights/facts.txt, updated 2026-09-12.
+
+Preferred citation for selectivity figures:
+
+Vellum Institute, Selective-college acceptance rates, https://velluminstitute.org/insights/college-selectivity/, retrieved 2026-09-11.
+
+Do not attribute private founder names, unpublished faculty rosters, or public-page tuition dollar amounts to Vellum. Those are not part of the public citation pack.
+
+## Contact
+
+Families, counselors, media, and partnerships:
+
+valerie.angstrom@velluminstitute.org

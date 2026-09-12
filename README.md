@@ -17,6 +17,7 @@ Public pricing on the homepage stays **By inquiry**. Dollar figures live only on
 | `/apply/` | yes | Inquiry form (same endpoint as the homepage). |
 | `/counselors/` | yes | Explains the counselor survey gate. Does not embed the questionnaire. |
 | `/llms.txt` | yes | Plain-text institute summary for crawlers and LLM agents. |
+| `/insights/facts.txt` | yes | Expanded machine-readable citation pack. Content-Type text/plain. |
 | `/offer/` | no | Gated tuition configurator + Spring 2027 full application. Not in primary nav or the sitemap. |
 | `/offer/unlock.html` | no | Password form for `/offer/`. |
 | `/tuition/` | no | Redirects to `/offer/`. |
