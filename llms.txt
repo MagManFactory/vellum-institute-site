@@ -20,6 +20,8 @@ Website: https://velluminstitute.org/
 - Apply: https://velluminstitute.org/apply/
 - Counselors: https://velluminstitute.org/counselors/
 - Newsletter (The Vellum Brief): https://velluminstitute.org/newsletter/
+- Insights: https://velluminstitute.org/insights/
+- Selective-college acceptance rates (sourced table): https://velluminstitute.org/insights/college-selectivity/
 - Privacy: https://velluminstitute.org/privacy/
 
 ## For counselors
