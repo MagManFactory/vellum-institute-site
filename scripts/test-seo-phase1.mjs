@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -128,5 +128,35 @@ assert.notEqual(insightTitle, homeTitle);
 const insightDesc = insightsHtml.match(/<meta name="description" content="([^"]+)"/)[1];
 const homeDesc = homeHtml.match(/<meta name="description" content="([^"]+)"/)[1];
 assert.notEqual(insightDesc, homeDesc);
+
+const bingTag = read('includes/head-verification.html').trim();
+assert.equal(
+  bingTag,
+  '<meta name="msvalidate.01" content="47FC93A9CD705256DE4EB974AA817A99" />'
+);
+assert.match(read('scripts/build-seo-pages.mjs'), /includes\/head-verification\.html/);
+
+function htmlFiles(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name === '.git' || entry.name === 'node_modules' || entry.name === 'includes') continue;
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...htmlFiles(full));
+    else if (entry.name.endsWith('.html')) out.push(full);
+  }
+  return out;
+}
+
+for (const file of htmlFiles(root)) {
+  assert.match(
+    readFileSync(file, 'utf8'),
+    /<meta name="msvalidate\.01" content="47FC93A9CD705256DE4EB974AA817A99" \/>/,
+    `${file} missing Bing Webmaster meta`
+  );
+}
+
+assert.equal(existsSync(join(root, 'BingSiteAuth.xml')), true, 'keep BingSiteAuth.xml at root');
+assert.match(read('BingSiteAuth.xml'), /<user>47FC93A9CD705256DE4EB974AA817A99<\/user>/);
+assert.match(read('_headers'), /\/BingSiteAuth\.xml\s+Content-Type: application\/xml; charset=utf-8/);
 
 console.log('seo phase 1 checks passed');

@@ -1,8 +1,9 @@
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const HEAD_VERIFICATION = readFileSync(join(root, 'includes/head-verification.html'), 'utf8').trim();
 
 const ORG_LD = {
   '@context': 'https://schema.org',
@@ -84,6 +85,7 @@ function pageHead({ title, description, path, extraLd = '', extraCss = '' }) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+${HEAD_VERIFICATION}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4TVNVLX3X"></script>
 <script src="/js/gtag.js"></script>
