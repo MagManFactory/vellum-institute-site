@@ -78,9 +78,10 @@ assert.match(read('pricing/index.html'), /Eight live 90-minute sessions/);
 
 const sitemap = read('sitemap.xml');
 assert.match(sitemap, /xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"/);
-for (const path of ['/', '/about/', '/courses/', '/how-it-works/', '/pricing/', '/guided-research/', '/faq/', '/apply/', '/counselors/', '/newsletter/', '/insights/', '/insights/college-selectivity/', '/privacy/']) {
+for (const path of ['/', '/about/', '/courses/', '/how-it-works/', '/pricing/', '/guided-research/', '/faq/', '/apply/', '/counselors/', '/newsletter/', '/insights/', '/insights/college-selectivity/', '/insights/facts.txt', '/privacy/']) {
   assert.match(sitemap, new RegExp(`<loc>https://velluminstitute.org${path}</loc>`));
 }
+assert.match(sitemap, /<loc>https:\/\/velluminstitute\.org\/insights\/facts\.txt<\/loc>\s*<lastmod>2026-09-12<\/lastmod>/);
 assert.doesNotMatch(sitemap, /velluminstitute\.org\/offer\//);
 
 const llms = read('llms.txt');
@@ -88,8 +89,22 @@ assert.match(llms, /Vellum Institute/);
 assert.match(llms, /https:\/\/velluminstitute\.org\/courses\//);
 assert.match(llms, /https:\/\/velluminstitute\.org\/faq\//);
 assert.match(llms, /https:\/\/velluminstitute\.org\/insights\/college-selectivity\//);
+assert.match(llms, /https:\/\/velluminstitute\.org\/insights\/facts\.txt/);
+assert.match(llms, /dense citeable claims/i);
 assert.match(read('_headers'), /\/llms\.txt\s+Content-Type: text\/plain; charset=utf-8/);
+assert.match(read('_headers'), /\/insights\/facts\.txt\s+Content-Type: text\/plain; charset=utf-8/);
 assert.match(read('robots.txt'), /Sitemap: https:\/\/velluminstitute\.org\/sitemap\.xml/);
+
+const facts = read('insights/facts.txt');
+assert.match(facts, /Facts for citation/);
+assert.match(facts, /Core definitions/);
+assert.match(facts, /Updated: 2026-09-12/);
+assert.match(facts, /41\.5%/);
+assert.match(facts, /~45%/);
+assert.match(facts, /retrieved 2026-09-11/i);
+assert.doesNotMatch(facts, /\$1,750|\$3,300|Bharat Rao|Bala Mulloth/);
+assert.doesNotMatch(read('insights/index.html'), /id="faqList"><\/div>/);
+assert.match(read('insights/index.html'), /href="\/insights\/facts\.txt"/);
 
 assert.equal(existsSync(join(root, 'wrangler.toml')), true, 'do not strip wrangler.toml');
 assert.match(read('counselors/index.html'), /The Hidden Rules of College/);
