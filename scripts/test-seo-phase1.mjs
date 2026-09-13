@@ -24,6 +24,10 @@ const pages = {
   '/offer/': { file: 'offer/index.html', title: 'Seminar tuition and application | Vellum Institute' }
 };
 
+const gtagConfig = read('js/gtag.js');
+assert.match(gtagConfig, /gtag\('config', 'G-G39VWLZ05D'\)/, 'gtag.js config id');
+assert.doesNotMatch(gtagConfig, /G-W4TVNVLX3X/, 'gtag.js retired GA4 id');
+
 const titles = Object.values(pages).map((page) => page.title);
 assert.equal(new Set(titles).size, titles.length, 'page titles must be unique');
 
@@ -31,8 +35,9 @@ for (const [path, page] of Object.entries(pages)) {
   const html = read(page.file);
   assert.match(html, new RegExp(`<title>${page.title}</title>`), `${path} title`);
   assert.match(html, /<meta name="description" content="[^"]+"/, `${path} description`);
-  assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-W4TVNVLX3X/, `${path} gtag src`);
+  assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-G39VWLZ05D/, `${path} gtag src`);
   assert.match(html, /\/js\/gtag\.js/, `${path} gtag config`);
+  assert.doesNotMatch(html, /G-W4TVNVLX3X/, `${path} retired GA4 id`);
   if (path !== '/offer/') {
     assert.match(html, /EducationalOrganization/, `${path} Organization JSON-LD`);
   }

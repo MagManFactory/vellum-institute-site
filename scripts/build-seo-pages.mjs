@@ -87,7 +87,7 @@ function pageHead({ title, description, path, extraLd = '', extraCss = '' }) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ${HEAD_VERIFICATION}
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W4TVNVLX3X"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G39VWLZ05D"></script>
 <script src="/js/gtag.js"></script>
 <title>${esc(title)}</title>
 <link rel="canonical" href="${url}">
