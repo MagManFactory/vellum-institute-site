@@ -156,6 +156,11 @@ assert.equal(
 );
 assert.match(read('scripts/build-seo-pages.mjs'), /includes\/head-verification\.html/);
 
+const MAILING_ADDRESS = 'Mailing Address: 1968 S. Coast Hwy #5495, Laguna Beach, CA 92651';
+assert.equal(read('includes/footer-mailing.html').trim(), `<p class="footer-mailing">${MAILING_ADDRESS}</p>`);
+assert.match(read('scripts/build-seo-pages.mjs'), /includes\/footer-mailing\.html/);
+assert.match(read('css/site-core.css'), /\.footer-mailing\{/);
+
 function htmlFiles(dir) {
   const out = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
@@ -168,11 +173,15 @@ function htmlFiles(dir) {
 }
 
 for (const file of htmlFiles(root)) {
+  const html = readFileSync(file, 'utf8');
   assert.match(
-    readFileSync(file, 'utf8'),
+    html,
     /<meta name="msvalidate\.01" content="47FC93A9CD705256DE4EB974AA817A99" \/>/,
     `${file} missing Bing Webmaster meta`
   );
+  if (!html.includes('<footer')) continue;
+  const copies = html.split(MAILING_ADDRESS).length - 1;
+  assert.equal(copies, 1, `${file} should show the mailing address once`);
 }
 
 assert.equal(existsSync(join(root, 'BingSiteAuth.xml')), true, 'keep BingSiteAuth.xml at root');
