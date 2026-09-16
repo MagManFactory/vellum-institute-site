@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HEAD_VERIFICATION = readFileSync(join(root, 'includes/head-verification.html'), 'utf8').trim();
+const FOOTER_MAILING = readFileSync(join(root, 'includes/footer-mailing.html'), 'utf8').trim();
 
 const ORG_LD = {
   '@context': 'https://schema.org',
@@ -193,6 +194,7 @@ function footer() {
   <div class="wrap footer-bottom">
     <span>&copy; 2026 Vellum Institute. All rights reserved. · <a href="/privacy/">Privacy</a></span>
     <span>Every course capped at fifteen students. Applications reviewed on a rolling basis.</span>
+    ${FOOTER_MAILING}
   </div>
 </footer>
 <script src="/js/site-nav.js"></script>`;
