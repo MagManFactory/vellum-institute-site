@@ -110,6 +110,8 @@ ${extraLd}
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M6 8h9l9 26 9-26h9L28 42h-8L6 8z' fill='%23A9803F'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="/css/site-core.css">
 ${extraCss}
+<link rel="stylesheet" href="/css/polish-dev.css">
+<script src="/js/polish-dev.js"></script>
 </head>`;
 }
 
