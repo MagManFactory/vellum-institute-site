@@ -28,3 +28,11 @@
 /full-application.html
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
+
+/newsletter/issue-03/access/
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/newsletter/issue-03/access
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
