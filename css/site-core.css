@@ -249,3 +249,5 @@ footer a:hover{color:#fff;}
   .nav-inner{padding:18px 18px;}
   .brand{font-size:15px;}
 }
+
+.course-row[hidden]{display:none;}

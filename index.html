@@ -389,6 +389,8 @@
     .nav-inner{padding:18px 18px;}
     .brand{font-size:15px;}
   }
+
+.course-row[hidden]{display:none;}
 </style>
 </head>
 <body>
@@ -1003,26 +1005,6 @@
     location.replace('/about/#why-vellum');
   }
 
-  // ---- Mobile menu ----
-  document.getElementById('burgerBtn').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  });
-  document.querySelectorAll('.mobile-menu a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
-  });
-
-  // ---- Nav scroll state (floating -> grounded) ----
-  const siteNav = document.getElementById('siteNav');
-  let navTicking = false;
-  function updateNav(){
-    siteNav.classList.toggle('scrolled', window.scrollY > 40);
-    navTicking = false;
-  }
-  window.addEventListener('scroll', () => {
-    if(!navTicking){ requestAnimationFrame(updateNav); navTicking = true; }
-  }, {passive:true});
-  updateNav();
-
   // ---- Reveal-on-scroll, with a hard fallback so content is never stuck invisible ----
   const revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
@@ -1093,5 +1075,6 @@
     wireRoleOther(document.getElementById('brief-signup'));
   })();
 </script>
+<script src="/js/site-nav.js"></script>
 </body>
 </html>

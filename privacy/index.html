@@ -404,16 +404,10 @@
     font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
     color:var(--accent); margin:-4px 0 36px;
   }
-  .privacy-notice{border-top:1px solid var(--line);}
-  .privacy-block{padding:32px 0; border-bottom:1px solid var(--line);}
-  .privacy-block:last-child{border-bottom:none; padding-bottom:0;}
-  .privacy-block .section-mark{margin-bottom:16px;}
-  .privacy-block h2{font-size:clamp(1.35rem, 1.2rem + 0.6vw, 1.65rem); margin-bottom:12px; line-height:1.2;}
-  .privacy-block p{
-    font-size:0.92rem; color:var(--text); line-height:1.7; max-width:68ch;
-  }
-  .privacy-block a{color:var(--accent); font-weight:500; border-bottom:1px solid transparent; transition:border-color var(--dur-fast);}
-  .privacy-block a:hover{border-bottom-color:var(--accent);}
+  .privacy-notice{border-top:1px solid var(--line); padding-top:20px; font-size:0.875rem; line-height:1.65; color:var(--text);}
+  .privacy-notice p{margin:0 0 16px;}
+  .privacy-notice p:last-child{margin-bottom:0;}
+  .privacy-notice a{text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere;}
 
 </style>
 </head>
@@ -457,41 +451,14 @@
   <div class="wrap">
     <div class="page-eyebrow">Vellum Institute</div>
     <h1>Privacy Notice</h1>
-    <p class="privacy-effective">Effective 5 September 2026</p>
+    <p class="privacy-effective">Effective 30 September 2026</p>
 
     <div class="privacy-notice">
-      <section class="privacy-block">
-        <div class="section-mark">
-          <span class="idx">01</span>
-          <span class="idx-total">/ 03</span>
-          <span class="rule"></span>
-          <span class="eyebrow">Collection</span>
-        </div>
-        <h2>Data Collection &amp; Purpose</h2>
-        <p>We collect your name and email address only if you voluntarily subscribe to our dispatches. This information is used exclusively to fulfill subscriptions and is never sold, shared, or used for third-party advertising.</p>
-      </section>
+      <p>We collect the information you provide when you inquire, apply, subscribe to The Vellum Brief, or complete a counselor survey. Depending on the form, this may include contact details, student and school information, course interests, and your responses. We use it to respond to requests, review applications, administer programs, and send communications you request.</p>
 
-      <section class="privacy-block">
-        <div class="section-mark">
-          <span class="idx">02</span>
-          <span class="idx-total">/ 03</span>
-          <span class="rule"></span>
-          <span class="eyebrow">Retention</span>
-        </div>
-        <h2>Infrastructure &amp; Retention</h2>
-        <p>Third-party cloud hosting and email delivery services process this data on our behalf. Records are retained until you unsubscribe using the link in any dispatch or request removal.</p>
-      </section>
+      <p>Google, Cloudflare, and AgentMail provide our form storage, hosting, and email services. The website also uses Google Analytics to understand site usage. We retain records while needed for these purposes and applicable recordkeeping requirements.</p>
 
-      <section class="privacy-block">
-        <div class="section-mark">
-          <span class="idx">03</span>
-          <span class="idx-total">/ 03</span>
-          <span class="rule"></span>
-          <span class="eyebrow">Rights</span>
-        </div>
-        <h2>Compliance &amp; Rights</h2>
-        <p>The practices detailed on this page comply with the guidelines of the General Data Protection Regulation (GDPR), the California Online Privacy Protection Act (CalOPPA), and the California Consumer Privacy Act (CCPA). To access, correct, or delete your information, contact the administrator (<a href="mailto:valerie.angstrom@velluminstitute.org">Contact us</a>).</p>
-      </section>
+      <p>You can unsubscribe from outreach or newsletter emails using the link provided. To request access, correction, or deletion of your information, contact <a href="mailto:valerie.angstrom@velluminstitute.org">valerie.angstrom@velluminstitute.org</a>.</p>
     </div>
   </div>
 </main>
@@ -542,19 +509,9 @@
   </div>
 </footer>
 
-<script>
-  (function(){
-    var btn = document.getElementById('burgerBtn');
-    var menu = document.getElementById('mobileMenu');
-    if(btn && menu){
-      btn.addEventListener('click', function(){
-        var open = menu.style.display === 'flex';
-        menu.style.display = open ? 'none' : 'flex';
-      });
-    }
-  })();
-</script>
 
 
+
+<script src="/js/site-nav.js"></script>
 </body>
 </html>

@@ -2,11 +2,14 @@
   var grid = document.getElementById('courseGrid');
   if (grid) {
     document.querySelectorAll('.filter-btn').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
       btn.addEventListener('click', function () {
         document.querySelectorAll('.filter-btn').forEach(function (other) {
           other.classList.remove('active');
+          other.setAttribute('aria-pressed', 'false');
         });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
         var filter = btn.getAttribute('data-filter');
         grid.querySelectorAll('.course-row').forEach(function (row) {
           row.hidden = filter !== 'all' && row.getAttribute('data-tag') !== filter;
