@@ -22,8 +22,8 @@
         'Media Psychology',
         'Geopolitics in the Age of AI',
         'Environmental Sustainability in Business',
-        'Behavioral Economics',
-        'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime'
+        'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime',
+        'Behavioral Economics'
       ];
     }
     interestSelect.innerHTML = '<option value="">Select a course</option>' +

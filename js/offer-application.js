@@ -9,8 +9,8 @@ export const COURSES = [
   'Media Psychology',
   'Geopolitics in the Age of AI',
   'Environmental Sustainability in Business',
-  'Behavioral Economics',
   'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime',
+  'Behavioral Economics',
 ];
 
 export const APPLICATION_TEXT_IDS = [

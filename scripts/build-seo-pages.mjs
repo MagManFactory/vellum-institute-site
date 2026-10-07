@@ -20,8 +20,8 @@ const COURSES = [
   { title: 'Media Psychology', tag: 'confirmed', q: 'Who are you online? How digital environments shape identity, attention, persuasion, and self-presentation, and what AI adds to questions of authenticity.' },
   { title: 'Geopolitics in the Age of AI', tag: 'confirmed', q: 'How emerging technology is reshaping global power: US-China competition, semiconductors, cybersecurity, information warfare, supply chains, and technological sovereignty.' },
   { title: 'Environmental Sustainability in Business', tag: 'confirmed', q: 'How should firms account for environmental harm across operations and supply chains—and turn sustainability gaps into organizational value? Cases and readings cover climate impact, toxics, resource depletion, and product disposal.' },
-  { title: 'Behavioral Economics', tag: 'consideration', q: 'Why smart people make irrational decisions: predictable mistakes, failed incentives, framing, social influence, loss aversion, and bias, explored through a student-designed behavioral experiment or project.' },
-  { title: 'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime', tag: 'consideration', q: 'How anime, manga, gaming, music, fashion, and technology made Japan a global cultural force, and how media shapes how nations are perceived.' }
+  { title: 'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime', tag: 'confirmed', q: 'How anime, manga, gaming, music, fashion, and technology made Japan a global cultural force, and how media shapes how nations are perceived.' },
+  { title: 'Behavioral Economics', tag: 'consideration', q: 'Why smart people make irrational decisions: predictable mistakes, failed incentives, framing, social influence, loss aversion, and bias, explored through a student-designed behavioral experiment or project.' }
 ];
 
 const FAQS = [

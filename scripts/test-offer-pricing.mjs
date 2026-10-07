@@ -136,8 +136,8 @@ const expectedTitles = [
   'Media Psychology',
   'Geopolitics in the Age of AI',
   'Environmental Sustainability in Business',
-  'Behavioral Economics',
   'Japanese Media, Culture, and Society: From Buddhist Texts to Global Anime',
+  'Behavioral Economics',
 ];
 assert.deepEqual(COURSES, expectedTitles);
 assert.equal(COURSES.includes('Biotech Frontiers'), false);
