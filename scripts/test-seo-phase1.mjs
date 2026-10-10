@@ -105,7 +105,7 @@ assert.match(facts, /Facts for citation/);
 assert.match(facts, /Core definitions/);
 assert.match(facts, /Updated: 2026-09-12/);
 assert.match(facts, /41\.5%/);
-assert.match(facts, /~45%/);
+assert.doesNotMatch(facts, /~45%/);
 assert.match(facts, /retrieved 2026-09-11/i);
 assert.doesNotMatch(facts, /\$1,750|\$3,300|Bharat Rao|Bala Mulloth/);
 assert.doesNotMatch(read('insights/index.html'), /id="faqList"><\/div>/);
@@ -140,7 +140,18 @@ for (const row of insightRows) {
   assert.ok(newRate < oldRate, `${row[1]} recent rate should be below baseline`);
   relSum += (oldRate - newRate) / oldRate;
 }
-assert.ok(Math.abs(relSum / 8 - 0.415) < 0.01, 'mean relative decline should be about 41.5%');
+const meanDecline = (100 * relSum / 8).toFixed(1);
+assert.equal(meanDecline, '41.5', 'mean calculated from unrounded count-based rates');
+assert.ok(homeHtml.includes(`<span class="big-num">${meanDecline}%</span>`), 'homepage mean matches sourced counts');
+const chartRows = [...homeHtml.matchAll(/class="stat-school">([^<]+)<\/span>.*?<s>([\d.]+)%<\/s>.*?<strong>([\d.]+)%<\/strong>/g)];
+assert.equal(chartRows.length, 8, 'eight homepage chart rows');
+for (let i = 0; i < insightRows.length; i++) {
+  const row = insightRows[i];
+  assert.equal(chartRows[i][2], (100 * Number(row[3]) / Number(row[2])).toFixed(1), `${row[1]} homepage baseline`);
+  assert.equal(chartRows[i][3], (100 * Number(row[5]) / Number(row[4])).toFixed(1), `${row[1]} homepage recent`);
+}
+assert.match(homeHtml, /Fall 2015 or Fall 2016 versus Fall 2024 or Fall 2025/);
+assert.doesNotMatch(homeHtml, /~45%|3\.2&ndash;4\.2%|2023-24 or 2024-25/);
 
 const insightTitle = insightsHtml.match(/<title>([^<]+)<\/title>/)[1];
 const homeTitle = homeHtml.match(/<title>([^<]+)<\/title>/)[1];

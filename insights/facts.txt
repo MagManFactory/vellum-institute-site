@@ -162,8 +162,8 @@ https://velluminstitute.org/
 
 What the public claim is:
 
-* The homepage summarizes a decade of compression at eight highly selective U.S. colleges and uses a rounded "~45%" figure for the average drop in acceptance rate across those eight schools.
-* The Insights page is the citeable record behind that chart. It does not replace or rewrite the homepage numbers.
+* The homepage summarizes a decade of compression at eight highly selective U.S. colleges and uses 41.5% for the unweighted mean relative drop in acceptance rate across those eight schools.
+* The Insights page is the citeable record behind that chart. The homepage uses the same cycles and one-decimal rates as that table.
 
 Method summary (from the Insights page):
 
@@ -180,8 +180,8 @@ Schools on the homepage chart and Insights table: Harvard College, Stanford Univ
 
 Caveats required when citing these figures:
 
-* The homepage keeps existing rounded figures, including "~45%". Some homepage "recent" cells are an earlier cycle than the latest official release on the Insights table. The Insights page does not change those homepage numbers.
-* Using a trough year instead of each school's latest official cycle can change a school's relative decline and the eight-school mean. The table uses each school's latest official cycle.
+* The chart compares Fall 2015 or Fall 2016 with Fall 2024 or Fall 2025, depending on the school (Harvard: Classes of 2020 and 2029). The 41.5% mean uses unrounded count-based rates.
+* Using a trough year instead of the dated recent cycles in the dataset can change a school's relative decline and the eight-school mean. The table uses the dated recent cycles in the dataset.
 * These figures describe published first-year selectivity at those eight schools. They are not a Vellum admissions outcome, a placement rate, or a promise about any applicant.
 
 Do not dump the full applicant/admit table here. Cite the Insights page for school-level counts, sources, and dated publications.
