@@ -108,3 +108,16 @@ export function buildOfferLeadPayload({ fields, totals, paymentMethod, hp }) {
     website: hp || '',
   };
 }
+
+// Check the existing edge gate immediately before any application write.
+export async function ensureOfferSession(fetcher = fetch) {
+  const response = await fetcher('/offer/', {
+    method: 'GET', credentials: 'same-origin', cache: 'no-store'
+  });
+  const path = response.url ? new URL(response.url).pathname : '';
+  if (!response.ok || response.redirected || path !== '/offer/') {
+    const error = new Error('Unlock access again before submitting.');
+    error.code = 'offer_session_expired';
+    throw error;
+  }
+}

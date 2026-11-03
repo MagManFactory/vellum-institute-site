@@ -481,7 +481,8 @@
     buildApplicationPayload,
     buildOfferLeadPayload,
     endpointIsConfigured,
-  } from '/js/offer-application.js';
+    ensureOfferSession,
+  } from '/js/offer-application.js?v=caa69656c5f6';
   import { fillCountrySelect } from '/js/countries.js';
 
   const form = document.getElementById('offerForm');
@@ -627,6 +628,7 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     try {
+      await ensureOfferSession();
       const resp = await fetch(APPLICATION_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -647,7 +649,16 @@
           hp,
         })),
       }).catch(() => {});
-    } catch {
+    } catch (error) {
+      if (error && error.code === 'offer_session_expired') {
+        const notice = document.createElement('p');
+        notice.textContent = 'Your access has expired. Your application was not sent. ';
+        const link = document.createElement('a');
+        link.href = '/offer/unlock.html';
+        link.textContent = 'Unlock access again';
+        notice.appendChild(link);
+        errorMsg.replaceChildren(notice);
+      }
       submitBtn.disabled = false;
       submitBtn.textContent = submitLabel;
       showError();

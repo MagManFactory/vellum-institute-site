@@ -112,34 +112,51 @@ function focusIssueHeading() {
   heading.focus();
 }
 
-async function submitBriefSignup(form) {
+export async function submitBriefSignup(form, fetcher = fetch) {
   const body = new URLSearchParams(new FormData(form));
-  await fetch(form.action, {
+  const response = await fetcher(form.action, {
     method: 'POST',
     mode: 'no-cors',
     body
   });
+  // An opaque response cannot confirm an Apps Script write.
+  if (!response || response.type === 'opaque') return { confirmed: false };
+  if (!response.ok) throw new Error('signup request failed');
+  const result = await response.json();
+  if (!result || result.ok !== true) throw new Error('signup was not accepted');
+  return { confirmed: true };
 }
 
-function wireBriefSignup(form) {
+export function wireBriefSignup(form) {
   if (!form || form.dataset.briefWired === '1') return;
   form.dataset.briefWired = '1';
   wireRoleOther(form);
+  const status = document.createElement('p');
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  form.appendChild(status);
   form.addEventListener('submit', (event) => {
-    const redirectTo = form.getAttribute('data-brief-redirect');
-    if (!redirectTo) return;
     event.preventDefault();
+    if (form.reportValidity && !form.reportValidity()) return;
     const button = form.querySelector('[type="submit"]');
     const error = form.querySelector('.form-error');
     if (error) error.hidden = true;
+    status.textContent = '';
     if (button) button.disabled = true;
     submitBriefSignup(form)
-      .then(() => {
-        window.location.assign(redirectTo);
+      .then(({ confirmed }) => {
+        if (!confirmed) {
+          status.textContent = 'Your request was sent, but we could not confirm that your subscription was saved. Please contact Vellum before submitting again.';
+          return;
+        }
+        const redirectTo = form.getAttribute('data-brief-redirect');
+        if (redirectTo) window.location.assign(redirectTo);
+        else status.textContent = 'Your subscription was saved.';
       })
       .catch(() => {
         if (button) button.disabled = false;
         if (error) error.hidden = false;
+        status.textContent = 'We could not confirm your subscription. Please try again or contact Vellum.';
       });
   });
 }
@@ -160,7 +177,7 @@ function promotePublicArchive() {
 }
 
 function initBriefPages() {
-  document.querySelectorAll('form[data-brief-redirect]').forEach((form) => {
+  document.querySelectorAll('form[data-brief-signup], form[data-brief-redirect]').forEach((form) => {
     wireBriefSignup(form);
   });
 
@@ -184,6 +201,17 @@ function initBriefPages() {
   promotePublicArchive();
 }
 
+export function refreshBriefAccess() {
+  if (typeof document === 'undefined') return;
+  if (hasIssueAccess()) revealIssue();
+  promotePublicArchive();
+}
+
 if (typeof document !== 'undefined') {
   initBriefPages();
+  window.addEventListener('pageshow', refreshBriefAccess);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') refreshBriefAccess();
+  });
 }
+

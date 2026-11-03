@@ -95,7 +95,7 @@ assert.match(issue, /If you are subscribed to The Vellum Brief, you can read thi
 assert.match(issue, /October 10, 2026/);
 assert.match(issue, /id="claim-access"/);
 assert.match(issue, /data-brief-robots="gated"/);
-assert.match(issue, /src="\/js\/brief-access\.mjs"/);
+assert.match(issue, /src="\/js\/brief-access\.mjs\?v=[a-f0-9]+"/);
 assert.match(issue, new RegExp(`action="${SIGNUP_ENDPOINT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
 assert.match(issue, /name="source" value="site_newsletter"/);
 assert.match(issue, /Mailing Address: 1968 S\. Coast Hwy #5495, Laguna Beach, CA 92651/);
@@ -123,11 +123,11 @@ for (const heading of [
 }
 
 assert.match(access, /data-brief-grant="access"/);
-assert.match(access, /You are subscribed/);
+assert.match(access, /Read The Vellum Brief/);
 assert.match(access, /href="\/newsletter\/issue-03\/"/);
 assert.match(access, /<meta name="robots" content="noindex, nofollow">/);
 assert.doesNotMatch(access, /GEORGETOWN NOW ACCEPTS/);
-assert.match(access, /src="\/js\/brief-access\.mjs"/);
+assert.match(access, /src="\/js\/brief-access\.mjs\?v=[a-f0-9]+"/);
 
 const sitemap = read('sitemap.xml');
 assert.match(sitemap, /<loc>https:\/\/velluminstitute\.org\/newsletter\/issue-03\/<\/loc>/);
