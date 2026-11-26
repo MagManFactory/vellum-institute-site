@@ -6,6 +6,7 @@
 User-agent: *
 Content-Signal: search=yes,ai-train=no,use=reference
 Allow: /
+Disallow: /cdn-cgi/l/email-protection
 Disallow: /partner-survey.html
 Disallow: /offer/
 Disallow: /tuition/
